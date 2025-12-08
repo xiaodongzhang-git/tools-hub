@@ -459,3 +459,84 @@
 .json-comma {
   color: #9ca3af;
 }
+
+
+/* ===== Image to Base64 Tool Layout ===== */
+
+.tool-img-layout {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.tool-img-column {
+  flex: 1;
+  min-width: 320px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-color);
+  border-radius: 0.75rem;
+  padding: 1rem 1.2rem;
+}
+
+.tool-title {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+.file-input {
+  margin-bottom: 0.75rem;
+}
+
+.preview-box {
+  border: 1px dashed var(--border-color);
+  border-radius: 0.5rem;
+  background: var(--bg-color);
+  min-height: 180px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  margin-bottom: 0.75rem;
+  padding: 0.5rem;
+}
+
+.preview-img {
+  max-width: 100%;
+  max-height: 300px;
+  display: none;
+}
+
+.placeholder {
+  opacity: 0.6;
+  font-size: 0.9rem;
+}
+
+.label-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.small-copy {
+  padding: 0.2rem 0.35rem;
+  font-size: 0.85rem;
+}
+
+.small-height {
+  min-height: 160px;
+}
+
+.mt-1 {
+  margin-top: 0.75rem;
+}
+
+.mt-2 {
+  margin-top: 1.5rem;
+}
+
+.size-info {
+  font-size: 0.85rem;
+  opacity: 0.8;
+  margin-bottom: 0.75rem;
+}
