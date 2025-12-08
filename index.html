@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>JSON Formatter - Tools Hub</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <!-- 先主布局逻辑，再 include，再本页工具逻辑 -->
+    <script src="assets/js/main.js" defer></script>
+    <script src="assets/js/include.js" defer></script>
+    <script src="assets/js/index.js" defer></script>
+  </head>
+  <body>
+    <div class="app">
+      <div data-include="partials/header.html"></div>
+
+      <div class="app-body">
+        <div data-include="partials/sidebar.html"></div>
+
+        <main class="main">
+          <h1>JSON Formatter</h1>
+
+          <!-- 上半部分：左右输入/输出 + 中间竖排按钮 -->
+          <section class="tool-layout">
+            <!-- 左侧：输入 -->
+            <div class="tool-column">
+              <label for="json-input" class="field-label">Input JSON</label>
+              <textarea
+                id="json-input"
+                class="code-area"
+                placeholder='Paste your JSON here, for example: {"name":"Xiaolei","age":30}'
+              ></textarea>
+            </div>
+
+            <!-- 中间：竖排按钮 -->
+            <div class="tool-buttons">
+              <button id="format-btn" type="button" class="primary-button">
+                Format
+              </button>
+              <button id="clear-btn" type="button" class="secondary-button">
+                Clear
+              </button>
+            </div>
+
+            <!-- 右侧：输出 + copy 按钮 -->
+            <div class="tool-column">
+              <div class="output-header">
+                <span class="field-label">Formatted JSON / Result</span>
+                <button
+                  id="copy-btn"
+                  type="button"
+                  class="icon-button copy-button"
+                  title="Copy formatted JSON"
+                  aria-label="Copy formatted JSON"
+                >
+                  📋
+                </button>
+              </div>
+              <div id="json-output" class="code-output"></div>
+            </div>
+          </section>
+
+          <!-- 下半部分：使用指南 -->
+          <section class="usage-section">
+            <h2>How to Use</h2>
+            <ol>
+              <li>Paste your raw JSON text into the input area on the left.</li>
+              <li>Click <strong>Format</strong> to pretty-print and validate the JSON.</li>
+              <li>
+                If the JSON is valid, the formatted result will be displayed on the right in a
+                readable, indented format.
+              </li>
+              <li>
+                If there is a syntax error, the right panel will show an error message with basic
+                details.
+              </li>
+              <li>
+                Click the <strong>📋 Copy</strong> button in the top-right of the result panel to copy
+                the formatted JSON to your clipboard.
+              </li>
+              <li>
+                Click <strong>Clear</strong> to clear both the input and output so you can start
+                again.
+              </li>
+            </ol>
+            <p>
+              All formatting and validation are done directly in your browser. Your JSON data is not
+              sent to any server.
+            </p>
+          </section>
+        </main>
+      </div>
+
+      <div data-include="partials/footer.html"></div>
+    </div>
+  </body>
+</html>

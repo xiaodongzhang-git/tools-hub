@@ -1,0 +1,461 @@
+/* 基础主题变量 */
+:root {
+    --bg-color: #f5f5f5;
+    --bg-elevated: #ffffff;
+    --text-color: #222222;
+    --border-color: #dddddd;
+    --accent-color: #3b82f6;
+  }
+  
+  body.dark-theme {
+    --bg-color: #111827;
+    --bg-elevated: #1f2933;
+    --text-color: #e5e7eb;
+    --border-color: #374151;
+    --accent-color: #60a5fa;
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  
+  body {
+    margin: 0;
+    padding-top: 3rem;  /* 预留头部高度，大约 48px，多一点没关系 */
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+  }
+  
+  
+  /* 总布局 */
+  
+  .app {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  /* Header */
+  
+  .app-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 1rem;
+    background-color: var(--bg-elevated);
+    border-bottom: 1px solid var(--border-color);
+    position: fixed;   /* 固定在窗口顶部 */
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+  }
+  
+  
+  .header-left {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  
+  .header-title {
+    font-weight: 600;
+    font-size: 1.1rem;
+  }
+  
+  .header-right {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  /* 按钮 */
+  
+  .icon-button,
+  .theme-toggle {
+    border: none;
+    background: none;
+    color: var(--text-color);
+    cursor: pointer;
+    padding: 0.25rem 0.5rem;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .icon-button:hover,
+  .theme-toggle:hover {
+    background-color: rgba(148, 163, 184, 0.2);
+  }
+  
+  /* 内容布局：侧栏 + 主区域 */
+  
+  .app-body {
+    display: flex;
+    flex: 1;
+    min-height: 0;
+  }
+  
+  /* Sidebar */
+  
+  .sidebar {
+    width: 240px;
+    background-color: var(--bg-elevated);
+    border-right: 1px solid var(--border-color);
+    padding: 1rem 0.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .sidebar-title {
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    opacity: 0.7;
+  }
+  
+  .nav-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .nav-item {
+    margin-bottom: 0.25rem;
+  }
+  
+  .nav-link {
+    display: block;
+    padding: 0.4rem 0.6rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 0.95rem;
+  }
+  
+  .nav-link:hover {
+    background-color: rgba(148, 163, 184, 0.25);
+  }
+  
+  .nav-link.active {
+    background-color: var(--accent-color);
+    color: white;
+  }
+  
+  /* Main 内容 */
+  
+  .main {
+    flex: 1;
+    padding: 1.25rem 1.5rem 2.5rem;
+    /* max-width: 960px; */
+  }
+  
+  .main h1 {
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+  }
+  
+  .main p {
+    line-height: 1.6;
+  }
+  
+  /* Footer */
+  
+  .app-footer {
+    margin-top: auto;
+    padding: 0.75rem 1rem;
+    border-top: 1px solid var(--border-color);
+    background-color: var(--bg-elevated);
+    font-size: 0.85rem;
+  }
+  
+  .footer-inner {
+    max-width: 960px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+  
+  .footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+  
+  .footer-link {
+    text-decoration: none;
+    color: var(--text-color);
+    opacity: 0.8;
+  }
+  
+  .footer-link:hover {
+    opacity: 1;
+    text-decoration: underline;
+  }
+  
+  /* 移动端 */
+  
+  @media (max-width: 768px) {
+    .app-body {
+      position: relative;
+    }
+  
+    .sidebar {
+      position: fixed;
+      top: 3rem;
+      bottom: 2.5rem;
+      left: 0;
+      transform: translateX(-100%);
+      max-width: 80%;
+      z-index: 20;
+    }
+  
+    .sidebar-open .sidebar {
+      transform: translateX(0);
+    }
+  
+    .main {
+      padding: 1rem 1rem 2.5rem;
+    }
+  }
+  
+  /* 菜单按钮只在移动端显示 */
+  
+  .menu-button {
+    display: none;
+  }
+  
+  @media (max-width: 768px) {
+    .menu-button {
+      display: inline-flex;
+    }
+  }
+  
+
+  /* ===== JSON Formatter tool layout ===== */
+
+  .tool-layout {
+    display: flex;
+    gap: 1rem;
+    align-items: stretch; /* 关键：拉齐高度 */
+    margin-bottom: 1.5rem;
+    flex-wrap: nowrap;
+  }
+  
+  .tool-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  
+
+.field-label {
+  font-size: 0.85rem;
+  opacity: 0.8;
+  margin-bottom: 0.25rem;
+  display: block;
+}
+
+.code-area,
+.code-output {
+  width: 100%;
+  min-height: 420px;  /* 可以按自己屏幕高度调 */
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+    "Courier New", monospace;
+  font-size: 0.9rem;
+  border: 1px solid var(--border-color);
+  background-color: var(--bg-elevated);
+  color: var(--text-color);
+  resize: none;       /* 不允许手动拉伸 */
+  flex: 1;            /* 在列中填满高度 */
+  overflow: auto;
+}
+
+
+.code-output {
+  white-space: pre-wrap;
+  overflow: auto;
+}
+
+/* 错误状态 */
+.code-output.error {
+  color: #b91c1c;
+  border-color: #f97373;
+  background-color: rgba(248, 113, 113, 0.08);
+}
+
+/* 中间竖排按钮区 */
+
+.tool-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  justify-content: flex-start;  /* 从顶部开始排，不再居中 */
+  align-items: stretch;
+  margin-top: 1.5rem;           /* 稍微往下挪一点，对齐上面的 label */
+}
+
+
+.primary-button,
+.secondary-button {
+  border-radius: 999px;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+
+.primary-button {
+  background-color: var(--accent-color);
+  color: #ffffff;
+}
+
+.primary-button:hover {
+  filter: brightness(1.05);
+}
+
+.secondary-button {
+  background-color: transparent;
+  color: var(--text-color);
+  border-color: var(--border-color);
+}
+
+.secondary-button:hover {
+  background-color: rgba(148, 163, 184, 0.2);
+}
+
+/* 输出头部（label + copy 按钮） */
+
+.output-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.25rem;
+}
+
+.copy-button {
+  font-size: 0.9rem;
+}
+
+/* 使用指南 */
+
+.usage-section {
+  margin-top: 2rem;
+}
+
+.usage-section h2 {
+  margin-bottom: 0.5rem;
+}
+
+.usage-section ol {
+  padding-left: 1.25rem;
+}
+
+.usage-section li {
+  margin-bottom: 0.35rem;
+  line-height: 1.6;
+}
+
+.usage-section p {
+  margin-top: 0.75rem;
+  line-height: 1.6;
+}
+
+/* 移动端：上下排列 */
+
+@media (max-width: 900px) {
+  .tool-layout {
+    flex-direction: column;
+  }
+
+  .tool-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    justify-content: flex-start;  /* 从顶部开始排，不再居中 */
+    align-items: stretch;
+    margin-top: 1.5rem;           /* 稍微往下挪一点，对齐上面的 label */
+  }
+  
+
+  .tool-buttons .primary-button,
+  .tool-buttons .secondary-button {
+    flex: 0 0 auto;
+  }
+}
+
+
+/* ===== JSON viewer with colors & collapsible ===== */
+
+.json-viewer {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+    "Courier New", monospace;
+  font-size: 0.9rem;
+  white-space: pre;
+}
+
+.json-item {
+  display: block;
+}
+
+.json-children {
+  /* 默认展开 */
+}
+
+.json-children.collapsed {
+  display: none;
+}
+
+.json-toggle {
+  display: inline-block;
+  width: 1em;
+  cursor: pointer;
+  user-select: none;
+  color: #9ca3af;
+}
+
+.json-toggle::before {
+  content: "▼";
+}
+
+.json-toggle.collapsed::before {
+  content: "▶";
+}
+
+.json-key {
+  color: #2563eb; /* 蓝色 key */
+}
+
+.json-string {
+  color: #16a34a; /* 绿色字符串 */
+}
+
+.json-number {
+  color: #f59e0b; /* 橙色数字 */
+}
+
+.json-boolean {
+  color: #ec4899; /* 粉色布尔 */
+}
+
+.json-null {
+  color: #6b7280; /* 灰色 null */
+}
+
+.json-bracket {
+  color: #9ca3af;
+}
+
+.json-comma {
+  color: #9ca3af;
+}

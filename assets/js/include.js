@@ -1,0 +1,41 @@
+document.addEventListener("DOMContentLoaded", () => {
+    const includeTargets = document.querySelectorAll("[data-include]");
+  
+    // 没有需要 include 的，直接初始化布局
+    if (includeTargets.length === 0) {
+      if (window.initLayout) {
+        window.initLayout();
+      }
+      return;
+    }
+  
+    let remaining = includeTargets.length;
+  
+    includeTargets.forEach((el) => {
+      const file = el.getAttribute("data-include");
+      if (!file) {
+        remaining--;
+        return;
+      }
+  
+      fetch(file)
+        .then((res) => {
+          if (!res.ok) throw new Error(`Failed to load ${file}`);
+          return res.text();
+        })
+        .then((html) => {
+          el.innerHTML = html;
+        })
+        .catch((err) => {
+          console.error(err);
+          el.innerHTML = "";
+        })
+        .finally(() => {
+          remaining--;
+          if (remaining === 0 && window.initLayout) {
+            window.initLayout();
+          }
+        });
+    });
+  });
+  
