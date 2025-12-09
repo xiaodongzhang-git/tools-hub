@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Text Counter – Word & Character Counter Online | Tools Hub</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Online text counter that calculates characters, words, lines, and bytes in real time. Useful for tweets, posts, SEO text, and code comments. All counting is done locally in your browser."
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <script src="assets/js/main.js" defer></script>
+    <script src="assets/js/include.js" defer></script>
+    <script src="assets/js/text-counter.js" defer></script>
+  </head>
+  <body>
+    <div class="app">
+      <div data-include="partials/header.html"></div>
+
+      <div class="app-body">
+        <div data-include="partials/sidebar.html"></div>
+
+        <main class="main">
+          <h1>Text Counter</h1>
+
+          <section class="text-counter-layout">
+            <!-- 左侧输入 -->
+            <div class="text-counter-input-area">
+              <label for="tc-input" class="field-label">Text</label>
+              <textarea
+                id="tc-input"
+                class="code-area"
+                placeholder="Type or paste your text here..."
+              ></textarea>
+
+              <div class="text-counter-actions">
+                <button id="tc-clear-btn" type="button" class="secondary-button">
+                  Clear
+                </button>
+              </div>
+            </div>
+
+            <!-- 右侧统计 -->
+            <aside class="text-counter-summary">
+              <h2 class="text-counter-summary-title">Statistics</h2>
+              <dl class="text-counter-stats">
+                <div class="text-counter-stat-row">
+                  <dt>Characters (including spaces)</dt>
+                  <dd id="tc-char-with-spaces">0</dd>
+                </div>
+                <div class="text-counter-stat-row">
+                  <dt>Characters (excluding spaces)</dt>
+                  <dd id="tc-char-no-spaces">0</dd>
+                </div>
+                <div class="text-counter-stat-row">
+                  <dt>Words</dt>
+                  <dd id="tc-words">0</dd>
+                </div>
+                <div class="text-counter-stat-row">
+                  <dt>Lines</dt>
+                  <dd id="tc-lines">0</dd>
+                </div>
+                <div class="text-counter-stat-row">
+                  <dt>Estimated bytes (UTF-8)</dt>
+                  <dd id="tc-bytes">0</dd>
+                </div>
+              </dl>
+            </aside>
+          </section>
+
+          <section class="usage-section mt-2">
+            <h2>How to Use</h2>
+            <ol>
+              <li>Type or paste your text into the input box on the left.</li>
+              <li>
+                The tool will automatically update the counters on the right, including characters,
+                words, lines, and estimated bytes.
+              </li>
+              <li>
+                Use the <strong>Clear</strong> button to reset the input and all counters to zero.
+              </li>
+            </ol>
+
+            <p>
+              This text counter is useful for checking limits when writing posts, messages, titles,
+              descriptions, or any other content with length constraints.
+            </p>
+
+            <h2>Technical notes</h2>
+            <p>
+              Character and word counts are calculated directly in your browser using simple string
+              operations. Word counting is based on whitespace separation. Estimated bytes are
+              calculated using UTF-8 encoding via the browser's <code>TextEncoder</code> API when
+              available, with a fallback for older environments. No text is uploaded or stored on a
+              server; all processing happens locally on your device.
+            </p>
+          </section>
+        </main>
+      </div>
+
+      <div data-include="partials/footer.html"></div>
+    </div>
+  </body>
+</html>

@@ -807,3 +807,73 @@
 .base64-tool-buttons {
   margin-top: 1.5rem;
 }
+
+/* ===== Text Counter Tool ===== */
+
+.text-counter-layout {
+  margin-top: 0.75rem;
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(260px, 1fr);
+  gap: 1.25rem;
+  align-items: flex-start;
+}
+
+.text-counter-input-area {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.text-counter-actions {
+  margin-top: 0.25rem;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.text-counter-summary {
+  background-color: var(--bg-elevated);
+  border: 1px solid var(--border-color);
+  border-radius: 0.75rem;
+  padding: 0.75rem 0.9rem;
+}
+
+.text-counter-summary-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem;
+}
+
+.text-counter-stats {
+  margin: 0;
+  padding: 0;
+}
+
+.text-counter-stat-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.25rem 0;
+  font-size: 0.9rem;
+  border-bottom: 1px dashed rgba(148, 163, 184, 0.4);
+}
+
+.text-counter-stat-row:last-child {
+  border-bottom: none;
+}
+
+.text-counter-stat-row dt {
+  margin: 0;
+  opacity: 0.9;
+}
+
+.text-counter-stat-row dd {
+  margin: 0;
+  font-weight: 600;
+}
+
+/* 小屏幕改为上下排布 */
+@media (max-width: 900px) {
+  .text-counter-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
