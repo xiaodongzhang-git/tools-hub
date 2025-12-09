@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://your-domain.com/sitemap.xml
+Sitemap: https://tools-hub.dev/sitemap.xml

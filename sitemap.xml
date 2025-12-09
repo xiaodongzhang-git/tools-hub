@@ -1,43 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://your-domain.com/</loc>
+    <loc>https://tools-hub.dev/</loc>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://your-domain.com/image-to-base64.html</loc>
+    <loc>https://tools-hub.dev/image-to-base64.html</loc>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://your-domain.com/base64-text.html</loc>
+    <loc>https://tools-hub.dev/base64-text.html</loc>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://your-domain.com/url-encoder.html</loc>
+    <loc>https://tools-hub.dev/url-encoder.html</loc>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://your-domain.com/jwt-decoder.html</loc>
+    <loc>https://tools-hub.dev/jwt-decoder.html</loc>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://your-domain.com/uuid-generator.html</loc>
+    <loc>https://tools-hub.dev/uuid-generator.html</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://your-domain.com/text-notes.html</loc>
+    <loc>https://tools-hub.dev/text-notes.html</loc>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://your-domain.com/about.html</loc>
+    <loc>https://tools-hub.dev/about.html</loc>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://your-domain.com/privacy.html</loc>
+    <loc>https://tools-hub.dev/privacy.html</loc>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://your-domain.com/contact.html</loc>
+    <loc>https://tools-hub.dev/contact.html</loc>
     <priority>0.5</priority>
   </url>
 </urlset>
