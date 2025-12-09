@@ -69,6 +69,48 @@
     align-items: center;
     gap: 0.5rem;
   }
+
+  /* 日期 + 时间的小胶囊 */
+.header-datetime {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  background-color: rgba(148, 163, 184, 0.15);
+  color: var(--text-color, #0f172a);
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.06);
+}
+
+.header-date {
+  opacity: 0.9;
+}
+
+.header-dot {
+  font-size: 0.7rem;
+  opacity: 0.6;
+}
+
+.header-time {
+  font-variant-numeric: tabular-nums;
+}
+
+/* 深色模式适配（如果你有 data-theme 或类似开关） */
+[data-theme="dark"] .header-datetime {
+  background-color: rgba(148, 163, 184, 0.25);
+  color: #e5e7eb;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.5);
+}
+
+/* 小屏幕适当缩小一点 */
+@media (max-width: 600px) {
+  .header-datetime {
+    font-size: 0.75rem;
+    padding: 0.2rem 0.6rem;
+  }
+}
   
   /* 按钮 */
   

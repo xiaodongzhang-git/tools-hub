@@ -61,3 +61,46 @@ function initLayout() {
 
 // 暴露给 include.js 调用
 window.initLayout = initLayout;
+
+
+// 初始化头部日期 + 时间（考虑 header 是异步 include 进来的）
+function initHeaderClock(retryCount = 0) {
+  const dateEl = document.querySelector("#header-datetime .header-date");
+  const timeEl = document.querySelector("#header-datetime .header-time");
+
+  // header 可能还没被 include.js 插入，找不到就稍后重试
+  if (!dateEl || !timeEl) {
+    if (retryCount < 20) {
+      setTimeout(() => initHeaderClock(retryCount + 1), 300);
+    }
+    return;
+  }
+
+  function updateClock() {
+    const now = new Date();
+
+    // 日期：例如 "Tue, Dec 9"（用户本地时区）
+    const dateStr = now.toLocaleDateString(undefined, {
+      weekday: "short",
+      month: "short",
+      day: "2-digit",
+    });
+
+    // 时间：例如 "21:37"
+    const timeStr = now.toLocaleTimeString(undefined, {
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: false, // 24 小时制，如果想 12 小时就改为 true
+    });
+
+    dateEl.textContent = dateStr;
+    timeEl.textContent = timeStr;
+  }
+
+  updateClock();
+  setInterval(updateClock, 1000);
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  initHeaderClock();
+});
