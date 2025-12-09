@@ -1,99 +1,97 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <title>Base64 Text Encoder / Decoder - Tools Hub</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta
-      name="description"
-      content="Encode and decode text to and from Base64 using UTF-8. Simple online Base64 converter that runs completely in your browser."
-    />
-    <link rel="stylesheet" href="assets/css/style.css" />
-    <script src="assets/js/main.js" defer></script>
-    <script src="assets/js/include.js" defer></script>
-    <script src="assets/js/base64-text.js" defer></script>
-  </head>
-  <body>
-    <div class="app">
-      <div data-include="partials/header.html"></div>
 
-      <div class="app-body">
-        <div data-include="partials/sidebar.html"></div>
+<head>
+  <meta charset="utf-8" />
+  <title>Base64 Text Encoder / Decoder – Online Tool | Tools Hub</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description"
+    content="Encode and decode text to and from Base64 using UTF-8. Simple online Base64 converter that runs completely in your browser." />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <script src="assets/js/main.js" defer></script>
+  <script src="assets/js/include.js" defer></script>
+  <script src="assets/js/base64-text.js" defer></script>
+</head>
 
-        <main class="main">
-          <h1>Base64 Text Encoder / Decoder</h1>
+<body>
+  <div class="app">
+    <div data-include="partials/header.html"></div>
 
-          <section class="tool-layout base64-tool-layout">
-            <!-- 左侧输入 -->
-            <div class="tool-column">
-              <label for="b64-input" class="field-label">Input text / Base64</label>
-              <textarea
-                id="b64-input"
-                class="code-area"
-                placeholder="Enter plain text to encode, or Base64 to decode..."
-              ></textarea>
-            </div>
+    <div class="app-body">
+      <div data-include="partials/sidebar.html"></div>
 
-            <!-- 中间按钮 -->
-            <div class="tool-buttons base64-tool-buttons">
-              <button id="b64-encode-btn" type="button" class="primary-button">
-                Encode
+      <main class="main">
+        <h1>Base64 Text Encoder / Decoder</h1>
+
+        <section class="tool-layout base64-tool-layout">
+          <!-- 左侧输入 -->
+          <div class="tool-column">
+            <label for="b64-input" class="field-label">Input text / Base64</label>
+            <textarea id="b64-input" class="code-area"
+              placeholder="Enter plain text to encode, or Base64 to decode..."></textarea>
+          </div>
+
+          <!-- 中间按钮 -->
+          <div class="tool-buttons base64-tool-buttons">
+            <button id="b64-encode-btn" type="button" class="primary-button">
+              Encode
+            </button>
+            <button id="b64-decode-btn" type="button" class="secondary-button">
+              Decode
+            </button>
+            <button id="b64-clear-btn" type="button" class="secondary-button">
+              Clear
+            </button>
+          </div>
+
+          <!-- 右侧输出 -->
+          <div class="tool-column">
+            <div class="output-header">
+              <span class="field-label">Result</span>
+              <button id="b64-copy-btn" type="button" class="icon-button copy-button" title="Copy result"
+                aria-label="Copy result">
+                📋
               </button>
-              <button id="b64-decode-btn" type="button" class="secondary-button">
-                Decode
-              </button>
-              <button id="b64-clear-btn" type="button" class="secondary-button">
-                Clear
-              </button>
             </div>
+            <textarea id="b64-output" class="code-area" placeholder="Result will appear here..."></textarea>
+          </div>
+        </section>
 
-            <!-- 右侧输出 -->
-            <div class="tool-column">
-              <div class="output-header">
-                <span class="field-label">Result</span>
-                <button
-                  id="b64-copy-btn"
-                  type="button"
-                  class="icon-button copy-button"
-                  title="Copy result"
-                  aria-label="Copy result"
-                >
-                  📋
-                </button>
-              </div>
-              <textarea
-                id="b64-output"
-                class="code-area"
-                placeholder="Result will appear here..."
-              ></textarea>
-            </div>
-          </section>
+        <section class="usage-section mt-2">
+          <h2>How to Use</h2>
+          <h3>Encode text to Base64</h3>
+          <ol>
+            <li>Type or paste plain text into the left input box.</li>
+            <li>Click <strong>Encode</strong> to convert it to Base64 using UTF-8 encoding.</li>
+            <li>The Base64 result will appear on the right. Use the 📋 button to copy it.</li>
+          </ol>
 
-          <section class="usage-section mt-2">
-            <h2>How to Use</h2>
-            <h3>Encode text to Base64</h3>
-            <ol>
-              <li>Type or paste plain text into the left input box.</li>
-              <li>Click <strong>Encode</strong> to convert it to Base64 using UTF-8 encoding.</li>
-              <li>The Base64 result will appear on the right. Use the 📋 button to copy it.</li>
-            </ol>
+          <h3>Decode Base64 to text</h3>
+          <ol>
+            <li>Paste a valid Base64 string into the left input box.</li>
+            <li>Click <strong>Decode</strong> to convert it back to readable text.</li>
+            <li>If the Base64 string is invalid, an error message will be shown.</li>
+          </ol>
 
-            <h3>Decode Base64 to text</h3>
-            <ol>
-              <li>Paste a valid Base64 string into the left input box.</li>
-              <li>Click <strong>Decode</strong> to convert it back to readable text.</li>
-              <li>If the Base64 string is invalid, an error message will be shown.</li>
-            </ol>
+          <h2>Technical notes</h2>
+          <p>
+            Text conversion to and from Base64 is done using standard browser functions such as
+            <code>btoa</code> and <code>atob</code>, combined with UTF-8 encoding logic to support
+            non-ASCII characters. Base64 is not a form of encryption; it is a binary-to-text encoding
+            scheme and should not be used as a security mechanism.
+          </p>
 
-            <p>
-              This tool is intended for general text conversion. Do not use it as a security
-              mechanism. All operations are performed locally in your browser.
-            </p>
-          </section>
-        </main>
-      </div>
 
-      <div data-include="partials/footer.html"></div>
+          <p>
+            This tool is intended for general text conversion. Do not use it as a security
+            mechanism. All operations are performed locally in your browser.
+          </p>
+        </section>
+      </main>
     </div>
-  </body>
+
+    <div data-include="partials/footer.html"></div>
+  </div>
+</body>
+
 </html>

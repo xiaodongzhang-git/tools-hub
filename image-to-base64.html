@@ -1,104 +1,110 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <title>Image ⇄ Base64 Converter - Tools Hub</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta
-      name="description"
-      content="Convert images to Base64 or decode Base64 into images instantly. Supports PNG, JPG, GIF, WebP. Free, secure, fast and works directly in your browser."
-    />
-    <link rel="stylesheet" href="assets/css/style.css" />
-    <script src="assets/js/main.js" defer></script>
-    <script src="assets/js/include.js" defer></script>
-    <script src="assets/js/image-base64.js" defer></script>
-  </head>
-  <body>
-    <div class="app">
-      <div data-include="partials/header.html"></div>
 
-      <div class="app-body">
-        <div data-include="partials/sidebar.html"></div>
+<head>
+  <meta charset="utf-8" />
+  <title>Image to Base64 Converter – Online Tool | Tools Hub</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description"
+    content="Convert images to Base64 or decode Base64 into images instantly. Supports PNG, JPG, GIF, WebP. Free, secure, fast and works directly in your browser." />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <script src="assets/js/main.js" defer></script>
+  <script src="assets/js/include.js" defer></script>
+  <script src="assets/js/image-base64.js" defer></script>
+</head>
 
-        <main class="main">
-          <h1>Image ⇄ Base64 Converter</h1>
+<body>
+  <div class="app">
+    <div data-include="partials/header.html"></div>
 
-          <!-- 工具 UI 区域 -->
-          <section class="tool-img-layout">
-            <!-- 左侧：图片 -> Base64 -->
-            <div class="tool-img-column">
-              <h2 class="tool-title">Image → Base64</h2>
+    <div class="app-body">
+      <div data-include="partials/sidebar.html"></div>
 
-              <label class="field-label">Upload Image</label>
-              <input type="file" id="img-input" accept="image/*" class="file-input" />
+      <main class="main">
+        <h1>Image ⇄ Base64 Converter</h1>
 
-              <div class="preview-box" id="img-preview-box">
-                <p class="placeholder">Image preview will appear here</p>
-                <img id="img-preview" class="preview-img" />
-              </div>
+        <!-- 工具 UI 区域 -->
+        <section class="tool-img-layout">
+          <!-- 左侧：图片 -> Base64 -->
+          <div class="tool-img-column">
+            <h2 class="tool-title">Image → Base64</h2>
 
-              <div class="size-info" id="img-size"></div>
+            <label class="field-label">Upload Image</label>
+            <input type="file" id="img-input" accept="image/*" class="file-input" />
 
-              <div class="result-box">
-                <label class="field-label label-row">
-                  Base64 Result
-                  <button id="copy-base64-btn" class="icon-button small-copy">📋</button>
-                </label>
-                <textarea class="code-area" id="base64-output" readonly></textarea>
-              </div>
+            <div class="preview-box" id="img-preview-box">
+              <p class="placeholder">Image preview will appear here</p>
+              <img id="img-preview" class="preview-img" />
             </div>
 
-            <!-- 右侧：Base64 -> 图片 -->
-            <div class="tool-img-column">
-              <h2 class="tool-title">Base64 → Image</h2>
+            <div class="size-info" id="img-size"></div>
 
-              <label class="field-label">Paste Base64 String</label>
-              <textarea
-                id="base64-input"
-                class="code-area"
-                placeholder="Paste your Base64 string here..."
-              ></textarea>
-
-              <button class="primary-button mt-1" id="decode-btn">Decode</button>
-              <button class="secondary-button mt-1" id="download-btn">Download image</button>
-
-              <div class="preview-box" id="decoded-preview-box">
-                <p class="placeholder">Decoded image will appear here</p>
-                <img id="decoded-preview" class="preview-img" />
-              </div>
-
-              <div class="size-info" id="decoded-size"></div>
+            <div class="result-box">
+              <label class="field-label label-row">
+                Base64 Result
+                <button id="copy-base64-btn" class="icon-button small-copy">📋</button>
+              </label>
+              <textarea class="code-area" id="base64-output" readonly></textarea>
             </div>
-          </section>
+          </div>
 
-          <!-- 使用说明 -->
-          <section class="usage-section mt-2">
-            <h2>How to Use</h2>
-            <p>This tool allows you to convert images into Base64 format or decode Base64 back into an image.</p>
+          <!-- 右侧：Base64 -> 图片 -->
+          <div class="tool-img-column">
+            <h2 class="tool-title">Base64 → Image</h2>
 
-            <h3>Image → Base64</h3>
-            <ol>
-              <li>Click the image upload button and choose an image (PNG, JPG, GIF, WebP supported).</li>
-              <li>The image preview and Base64 code will generate instantly.</li>
-              <li>Click the 📋 Copy button to copy the Base64 string.</li>
-            </ol>
+            <label class="field-label">Paste Base64 String</label>
+            <textarea id="base64-input" class="code-area" placeholder="Paste your Base64 string here..."></textarea>
 
-            <h3>Base64 → Image</h3>
-            <ol>
-              <li>Paste a valid Base64 string into the right-hand input box.</li>
-              <li>Click the <strong>Decode</strong> button.</li>
-              <li>The decoded image preview will be shown below.</li>
-            </ol>
+            <button class="primary-button mt-1" id="decode-btn">Decode</button>
+            <button class="secondary-button mt-1" id="download-btn">Download image</button>
 
-            <p>
-              All conversions are performed locally in your browser.
-              No images or Base64 data are uploaded to any server, ensuring complete privacy.
-            </p>
-          </section>
-        </main>
-      </div>
+            <div class="preview-box" id="decoded-preview-box">
+              <p class="placeholder">Decoded image will appear here</p>
+              <img id="decoded-preview" class="preview-img" />
+            </div>
 
-      <div data-include="partials/footer.html"></div>
+            <div class="size-info" id="decoded-size"></div>
+          </div>
+        </section>
+
+        <!-- 使用说明 -->
+        <section class="usage-section mt-2">
+          <h2>How to Use</h2>
+          <p>This tool allows you to convert images into Base64 format or decode Base64 back into an image.</p>
+
+          <h3>Image → Base64</h3>
+          <ol>
+            <li>Click the image upload button and choose an image (PNG, JPG, GIF, WebP supported).</li>
+            <li>The image preview and Base64 code will generate instantly.</li>
+            <li>Click the 📋 Copy button to copy the Base64 string.</li>
+          </ol>
+
+          <h3>Base64 → Image</h3>
+          <ol>
+            <li>Paste a valid Base64 string into the right-hand input box.</li>
+            <li>Click the <strong>Decode</strong> button.</li>
+            <li>The decoded image preview will be shown below.</li>
+          </ol>
+
+          <h2>Technical notes</h2>
+          <p>
+            Image to Base64 conversion is implemented using the browser's <code>FileReader</code> API and
+            <code>readAsDataURL</code>. The resulting <code>data:image/*;base64</code> string can be used
+            in HTML, CSS, or API requests. All image reading and conversion are performed locally and are
+            never uploaded to a server.
+          </p>
+
+
+          <p>
+            All conversions are performed locally in your browser.
+            No images or Base64 data are uploaded to any server, ensuring complete privacy.
+          </p>
+        </section>
+      </main>
     </div>
-  </body>
+
+    <div data-include="partials/footer.html"></div>
+  </div>
+</body>
+
 </html>

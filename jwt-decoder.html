@@ -1,84 +1,91 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <title>JWT Decoder - Tools Hub</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta
-      name="description"
-      content="Decode JSON Web Tokens (JWT) safely in your browser. View the header and payload of a JWT without sending it to any server."
-    />
-    <link rel="stylesheet" href="assets/css/style.css" />
-    <script src="assets/js/main.js" defer></script>
-    <script src="assets/js/include.js" defer></script>
-    <script src="assets/js/jwt-decoder.js" defer></script>
-  </head>
-  <body>
-    <div class="app">
-      <div data-include="partials/header.html"></div>
 
-      <div class="app-body">
-        <div data-include="partials/sidebar.html"></div>
+<head>
+  <meta charset="utf-8" />
+  <title>JWT Decoder – View Header & Payload Online | Tools Hub</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description"
+    content="Decode JSON Web Tokens (JWT) safely in your browser. View the header and payload of a JWT without sending it to any server." />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <script src="assets/js/main.js" defer></script>
+  <script src="assets/js/include.js" defer></script>
+  <script src="assets/js/jwt-decoder.js" defer></script>
+</head>
 
-        <main class="main">
-          <h1>JWT Decoder</h1>
+<body>
+  <div class="app">
+    <div data-include="partials/header.html"></div>
 
-          <section class="jwt-layout">
-            <label for="jwt-input" class="field-label">JWT Token</label>
-            <textarea
-              id="jwt-input"
-              class="code-area"
-              placeholder="Paste your JWT token here (three parts separated by dots: header.payload.signature)"
-            ></textarea>
+    <div class="app-body">
+      <div data-include="partials/sidebar.html"></div>
 
-            <div class="jwt-buttons">
-              <button id="jwt-decode-btn" type="button" class="primary-button">
-                Decode
-              </button>
-              <button id="jwt-clear-btn" type="button" class="secondary-button">
-                Clear
-              </button>
+      <main class="main">
+        <h1>JWT Decoder</h1>
+
+        <section class="jwt-layout">
+          <label for="jwt-input" class="field-label">JWT Token</label>
+          <textarea id="jwt-input" class="code-area"
+            placeholder="Paste your JWT token here (three parts separated by dots: header.payload.signature)"></textarea>
+
+          <div class="jwt-buttons">
+            <button id="jwt-decode-btn" type="button" class="primary-button">
+              Decode
+            </button>
+            <button id="jwt-clear-btn" type="button" class="secondary-button">
+              Clear
+            </button>
+          </div>
+
+          <div id="jwt-error" class="jwt-error"></div>
+
+          <div class="jwt-panels">
+            <div class="jwt-panel">
+              <div class="jwt-panel-title">Header</div>
+              <pre id="jwt-header" class="code-output"></pre>
             </div>
-
-            <div id="jwt-error" class="jwt-error"></div>
-
-            <div class="jwt-panels">
-              <div class="jwt-panel">
-                <div class="jwt-panel-title">Header</div>
-                <pre id="jwt-header" class="code-output"></pre>
-              </div>
-              <div class="jwt-panel">
-                <div class="jwt-panel-title">Payload</div>
-                <pre id="jwt-payload" class="code-output"></pre>
-              </div>
-              <div class="jwt-panel">
-                <div class="jwt-panel-title">Signature (raw)</div>
-                <pre id="jwt-signature" class="code-output small-height"></pre>
-              </div>
+            <div class="jwt-panel">
+              <div class="jwt-panel-title">Payload</div>
+              <pre id="jwt-payload" class="code-output"></pre>
             </div>
-          </section>
+            <div class="jwt-panel">
+              <div class="jwt-panel-title">Signature (raw)</div>
+              <pre id="jwt-signature" class="code-output small-height"></pre>
+            </div>
+          </div>
+        </section>
 
-          <section class="usage-section mt-2">
-            <h2>How to Use</h2>
-            <ol>
-              <li>Paste a full JWT token into the input box above (e.g. <code>xxxxx.yyyyy.zzzzz</code>).</li>
-              <li>Click <strong>Decode</strong> to parse and display the header and payload as formatted JSON.</li>
-              <li>The signature part is shown as raw Base64URL text.</li>
-            </ol>
+        <section class="usage-section mt-2">
+          <h2>How to Use</h2>
+          <ol>
+            <li>Paste a full JWT token into the input box above (e.g. <code>xxxxx.yyyyy.zzzzz</code>).</li>
+            <li>Click <strong>Decode</strong> to parse and display the header and payload as formatted JSON.</li>
+            <li>The signature part is shown as raw Base64URL text.</li>
+          </ol>
 
-            <p>
-              This tool only decodes JWTs. It does <strong>not</strong> verify the signature or the
-              token's validity. Do not treat decoded data as trusted without server-side validation.
-            </p>
-            <p>
-              All decoding is performed locally in your browser. Your JWTs are not transmitted to any
-              server.
-            </p>
-          </section>
-        </main>
-      </div>
+          <h2>Technical notes</h2>
+          <p>
+            JWT decoding is performed by splitting the token into header, payload, and signature parts,
+            then applying Base64URL decoding and JSON parsing to the first two segments. This tool
+            <strong>does not</strong> verify signatures or token validity. Always validate JWTs on your
+            server before trusting the information contained in them.
+          </p>
 
-      <div data-include="partials/footer.html"></div>
+
+          <p>
+            This tool only decodes JWTs. It does <strong>not</strong> verify the signature or the
+            token's validity. Do not treat decoded data as trusted without server-side validation.
+          </p>
+          <p>
+            All decoding is performed locally in your browser. Your JWTs are not transmitted to any
+            server.
+          </p>
+        </section>
+      </main>
     </div>
-  </body>
+
+    <div data-include="partials/footer.html"></div>
+  </div>
+</body>
+
 </html>

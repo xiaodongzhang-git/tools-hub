@@ -1,92 +1,90 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <title>UUID Generator - Tools Hub</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta
-      name="description"
-      content="Generate random UUID v4 values online. Create multiple UUIDs at once and copy them easily. All generation is done locally in your browser."
-    />
-    <link rel="stylesheet" href="assets/css/style.css" />
-    <script src="assets/js/main.js" defer></script>
-    <script src="assets/js/include.js" defer></script>
-    <script src="assets/js/uuid-generator.js" defer></script>
-  </head>
-  <body>
-    <div class="app">
-      <div data-include="partials/header.html"></div>
 
-      <div class="app-body">
-        <div data-include="partials/sidebar.html"></div>
+<head>
+  <meta charset="utf-8" />
+  <title>UUID Generator – UUID v4 Online | Tools Hub</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description"
+    content="Generate random UUID v4 values online. Create multiple UUIDs at once and copy them easily. All generation is done locally in your browser." />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <script src="assets/js/main.js" defer></script>
+  <script src="assets/js/include.js" defer></script>
+  <script src="assets/js/uuid-generator.js" defer></script>
+</head>
 
-        <main class="main">
-          <h1>UUID Generator</h1>
+<body>
+  <div class="app">
+    <div data-include="partials/header.html"></div>
 
-          <section class="uuid-layout">
-            <div class="uuid-options">
-              <div class="uuid-field">
-                <label for="uuid-count" class="field-label">How many UUIDs</label>
-                <input
-                  id="uuid-count"
-                  type="number"
-                  min="1"
-                  max="100"
-                  value="5"
-                  class="uuid-count-input"
-                />
-              </div>
+    <div class="app-body">
+      <div data-include="partials/sidebar.html"></div>
 
-              <div class="uuid-field uuid-checkboxes">
-                <label class="checkbox-inline">
-                  <input type="checkbox" id="uuid-uppercase" />
-                  <span>Uppercase</span>
-                </label>
-                <label class="checkbox-inline">
-                  <input type="checkbox" id="uuid-no-hyphen" />
-                  <span>Without hyphens</span>
-                </label>
-              </div>
+      <main class="main">
+        <h1>UUID Generator</h1>
 
-              <div class="uuid-buttons">
-                <button id="uuid-generate-btn" type="button" class="primary-button">
-                  Generate
-                </button>
-                <button id="uuid-clear-btn" type="button" class="secondary-button">
-                  Clear
-                </button>
-                <button id="uuid-copy-btn" type="button" class="secondary-button">
-                  Copy all
-                </button>
-              </div>
+        <section class="uuid-layout">
+          <div class="uuid-options">
+            <div class="uuid-field">
+              <label for="uuid-count" class="field-label">How many UUIDs</label>
+              <input id="uuid-count" type="number" min="1" max="100" value="5" class="uuid-count-input" />
             </div>
 
-            <label for="uuid-output" class="field-label">Generated UUIDs</label>
-            <textarea
-              id="uuid-output"
-              class="code-area uuid-output"
-              placeholder="Click &quot;Generate&quot; to create UUIDs..."
-              readonly
-            ></textarea>
-          </section>
+            <div class="uuid-field uuid-checkboxes">
+              <label class="checkbox-inline">
+                <input type="checkbox" id="uuid-uppercase" />
+                <span>Uppercase</span>
+              </label>
+              <label class="checkbox-inline">
+                <input type="checkbox" id="uuid-no-hyphen" />
+                <span>Without hyphens</span>
+              </label>
+            </div>
 
-          <section class="usage-section mt-2">
-            <h2>How to Use</h2>
-            <ol>
-              <li>Choose how many UUIDs you want to generate (between 1 and 100).</li>
-              <li>Optionally enable <strong>Uppercase</strong> or <strong>Without hyphens</strong>.</li>
-              <li>Click <strong>Generate</strong> to create random UUID v4 values.</li>
-              <li>Use <strong>Copy all</strong> to copy the generated list to your clipboard.</li>
-            </ol>
-            <p>
-              All UUIDs are generated locally in your browser using the Web Crypto API when
-              available. No data is sent to any server.
-            </p>
-          </section>
-        </main>
-      </div>
+            <div class="uuid-buttons">
+              <button id="uuid-generate-btn" type="button" class="primary-button">
+                Generate
+              </button>
+              <button id="uuid-clear-btn" type="button" class="secondary-button">
+                Clear
+              </button>
+              <button id="uuid-copy-btn" type="button" class="secondary-button">
+                Copy all
+              </button>
+            </div>
+          </div>
 
-      <div data-include="partials/footer.html"></div>
+          <label for="uuid-output" class="field-label">Generated UUIDs</label>
+          <textarea id="uuid-output" class="code-area uuid-output"
+            placeholder="Click &quot;Generate&quot; to create UUIDs..." readonly></textarea>
+        </section>
+
+        <section class="usage-section mt-2">
+          <h2>How to Use</h2>
+          <ol>
+            <li>Choose how many UUIDs you want to generate (between 1 and 100).</li>
+            <li>Optionally enable <strong>Uppercase</strong> or <strong>Without hyphens</strong>.</li>
+            <li>Click <strong>Generate</strong> to create random UUID v4 values.</li>
+            <li>Use <strong>Copy all</strong> to copy the generated list to your clipboard.</li>
+          </ol>
+          <h2>Technical notes</h2>
+          <p>
+            UUIDs are generated according to the version 4 (random) variant described in RFC 4122. When
+            available, the generator uses <code>crypto.getRandomValues</code> for high-quality random
+            values, and falls back to <code>Math.random</code> only in older environments. This makes the
+            generated UUIDs suitable for identifiers in many applications, but not as cryptographic keys.
+          </p>
+
+          <p>
+            All UUIDs are generated locally in your browser using the Web Crypto API when
+            available. No data is sent to any server.
+          </p>
+        </section>
+      </main>
     </div>
-  </body>
+
+    <div data-include="partials/footer.html"></div>
+  </div>
+</body>
+
 </html>

@@ -1,95 +1,97 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <title>URL Encoder / Decoder - Tools Hub</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta
-      name="description"
-      content="Online URL encoder and decoder. Safely encode or decode URLs and query strings using encodeURIComponent and decodeURIComponent, directly in your browser."
-    />
-    <link rel="stylesheet" href="assets/css/style.css" />
-    <script src="assets/js/main.js" defer></script>
-    <script src="assets/js/include.js" defer></script>
-    <script src="assets/js/url-encoder.js" defer></script>
-  </head>
-  <body>
-    <div class="app">
-      <div data-include="partials/header.html"></div>
 
-      <div class="app-body">
-        <div data-include="partials/sidebar.html"></div>
+<head>
+  <meta charset="utf-8" />
+  <title>URL Encoder / Decoder – Online Tool | Tools Hub</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description"
+    content="Online URL encoder and decoder. Safely encode or decode URLs and query strings using encodeURIComponent and decodeURIComponent, directly in your browser." />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <script src="assets/js/main.js" defer></script>
+  <script src="assets/js/include.js" defer></script>
+  <script src="assets/js/url-encoder.js" defer></script>
+</head>
 
-        <main class="main">
-          <h1>URL Encoder / Decoder</h1>
+<body>
+  <div class="app">
+    <div data-include="partials/header.html"></div>
 
-          <section class="tool-layout url-tool-layout">
-            <!-- 左侧输入 -->
-            <div class="tool-column">
-              <label for="url-input" class="field-label">Input text / URL</label>
-              <textarea
-                id="url-input"
-                class="code-area"
-                placeholder="Paste your URL or text here..."
-              ></textarea>
-            </div>
+    <div class="app-body">
+      <div data-include="partials/sidebar.html"></div>
 
-            <!-- 中间按钮 -->
-            <div class="tool-buttons url-tool-buttons">
-              <button id="encode-btn" type="button" class="primary-button">
-                Encode
+      <main class="main">
+        <h1>URL Encoder / Decoder</h1>
+
+        <section class="tool-layout url-tool-layout">
+          <!-- 左侧输入 -->
+          <div class="tool-column">
+            <label for="url-input" class="field-label">Input text / URL</label>
+            <textarea id="url-input" class="code-area" placeholder="Paste your URL or text here..."></textarea>
+          </div>
+
+          <!-- 中间按钮 -->
+          <div class="tool-buttons url-tool-buttons">
+            <button id="encode-btn" type="button" class="primary-button">
+              Encode
+            </button>
+            <button id="decode-btn" type="button" class="secondary-button">
+              Decode
+            </button>
+            <button id="clear-url-btn" type="button" class="secondary-button">
+              Clear
+            </button>
+          </div>
+
+          <!-- 右侧输出 -->
+          <div class="tool-column">
+            <div class="output-header">
+              <span class="field-label">Result</span>
+              <button id="copy-url-btn" type="button" class="icon-button copy-button" title="Copy result"
+                aria-label="Copy result">
+                📋
               </button>
-              <button id="decode-btn" type="button" class="secondary-button">
-                Decode
-              </button>
-              <button id="clear-url-btn" type="button" class="secondary-button">
-                Clear
-              </button>
             </div>
+            <textarea id="url-output" class="code-area"></textarea>
+          </div>
+        </section>
 
-            <!-- 右侧输出 -->
-            <div class="tool-column">
-              <div class="output-header">
-                <span class="field-label">Result</span>
-                <button
-                  id="copy-url-btn"
-                  type="button"
-                  class="icon-button copy-button"
-                  title="Copy result"
-                  aria-label="Copy result"
-                >
-                  📋
-                </button>
-              </div>
-              <textarea id="url-output" class="code-area"></textarea>
-            </div>
-          </section>
+        <section class="usage-section mt-2">
+          <h2>How to Use</h2>
+          <h3>Encode</h3>
+          <ol>
+            <li>Paste a URL or any text into the left input box.</li>
+            <li>Click <strong>Encode</strong> to convert it using <code>encodeURIComponent</code>.</li>
+            <li>The encoded result will appear on the right. You can click the 📋 button to copy it.</li>
+          </ol>
 
-          <section class="usage-section mt-2">
-            <h2>How to Use</h2>
-            <h3>Encode</h3>
-            <ol>
-              <li>Paste a URL or any text into the left input box.</li>
-              <li>Click <strong>Encode</strong> to convert it using <code>encodeURIComponent</code>.</li>
-              <li>The encoded result will appear on the right. You can click the 📋 button to copy it.</li>
-            </ol>
+          <h3>Decode</h3>
+          <ol>
+            <li>Paste a percent-encoded URL or text (e.g. <code>https%3A%2F%2Fexample.com</code>).</li>
+            <li>Click <strong>Decode</strong> to convert it back to a readable form using
+              <code>decodeURIComponent</code>.</li>
+            <li>If the encoded string is invalid, an error message will be shown in the result area.</li>
+          </ol>
 
-            <h3>Decode</h3>
-            <ol>
-              <li>Paste a percent-encoded URL or text (e.g. <code>https%3A%2F%2Fexample.com</code>).</li>
-              <li>Click <strong>Decode</strong> to convert it back to a readable form using <code>decodeURIComponent</code>.</li>
-              <li>If the encoded string is invalid, an error message will be shown in the result area.</li>
-            </ol>
+          <h2>Technical notes</h2>
+          <p>
+            URL encoding and decoding rely on the native JavaScript functions
+            <code>encodeURIComponent</code> and <code>decodeURIComponent</code>. These functions follow
+            the URL encoding rules defined by web standards. If an invalid percent-encoded sequence is
+            detected, the tool shows an error message instead of returning incorrect output.
+          </p>
 
-            <p>
-              All encoding and decoding are done locally in your browser using standard JavaScript
-              functions. No data is sent to any server.
-            </p>
-          </section>
-        </main>
-      </div>
 
-      <div data-include="partials/footer.html"></div>
+          <p>
+            All encoding and decoding are done locally in your browser using standard JavaScript
+            functions. No data is sent to any server.
+          </p>
+        </section>
+      </main>
     </div>
-  </body>
+
+    <div data-include="partials/footer.html"></div>
+  </div>
+</body>
+
 </html>
