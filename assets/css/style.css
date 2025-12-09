@@ -744,3 +744,66 @@
 .url-tool-buttons {
   margin-top: 1.5rem;
 }
+
+/* ===== UUID Generator ===== */
+
+.uuid-layout {
+  margin-top: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.uuid-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1rem;
+  align-items: center;
+}
+
+.uuid-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.uuid-count-input {
+  width: 80px;
+  padding: 0.3rem 0.5rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--border-color);
+  background-color: var(--bg-elevated);
+  color: var(--text-color);
+}
+
+.uuid-checkboxes {
+  flex-direction: row;
+  align-items: center;
+}
+
+.checkbox-inline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  margin-right: 0.75rem;
+  font-size: 0.9rem;
+}
+
+.uuid-buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.uuid-output {
+  min-height: 220px;
+}
+
+/* ===== Base64 Text Tool ===== */
+
+.base64-tool-layout .code-area {
+  min-height: 240px;
+}
+
+.base64-tool-buttons {
+  margin-top: 1.5rem;
+}
