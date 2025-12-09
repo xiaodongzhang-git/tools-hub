@@ -398,7 +398,7 @@ body {
 .code-area,
 .code-output {
   width: 100%;
-  min-height: 420px;
+  min-height: 620px;
   /* 可以按自己屏幕高度调 */
   border-radius: 0.5rem;
   padding: 0.75rem;
