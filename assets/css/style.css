@@ -670,3 +670,77 @@
   }
 }
 
+
+/* ===== JWT Decoder Tool ===== */
+
+.jwt-layout {
+  margin-top: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.jwt-buttons {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.25rem;
+}
+
+.jwt-error {
+  min-height: 1.2rem;
+  font-size: 0.9rem;
+  color: #b91c1c;
+}
+
+.jwt-panels {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.jwt-panel {
+  background-color: var(--bg-elevated);
+  border: 1px solid var(--border-color);
+  border-radius: 0.75rem;
+  padding: 0.5rem 0.6rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.jwt-panel-title {
+  font-size: 0.85rem;
+  opacity: 0.8;
+  margin-bottom: 0.25rem;
+}
+
+/* 复用 code-output 的样式，如果没有可以用你现有的 .code-output */
+.jwt-panel .code-output {
+  flex: 1;
+  margin: 0;
+  white-space: pre-wrap;
+}
+
+/* 响应式：小屏幕改两列 / 一列 */
+
+@media (max-width: 1100px) {
+  .jwt-panels {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .jwt-panels {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+
+/* URL encoder specific tweaks */
+.url-tool-layout .code-area {
+  min-height: 240px;
+}
+
+.url-tool-buttons {
+  margin-top: 1.5rem;
+}
