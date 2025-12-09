@@ -540,3 +540,133 @@
   opacity: 0.8;
   margin-bottom: 0.75rem;
 }
+
+
+
+/* ===== Text Notes Tool ===== */
+
+.notes-layout {
+  display: flex;
+  gap: 1.25rem;
+  align-items: stretch;
+  margin-top: 0.75rem;
+}
+
+.notes-sidebar {
+  width: 220px;
+  min-width: 200px;
+  background-color: var(--bg-elevated);
+  border: 1px solid var(--border-color);
+  border-radius: 0.75rem;
+  padding: 0.75rem 0.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.notes-list-header {
+  font-size: 0.85rem;
+  opacity: 0.8;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.notes-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex: 1;
+  overflow-y: auto;
+  max-height: 420px;
+}
+
+.notes-list-item,
+.notes-list-empty {
+  padding: 0.35rem 0.4rem;
+  border-radius: 0.4rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.notes-list-empty {
+  opacity: 0.7;
+  cursor: default;
+}
+
+.notes-list-item:hover {
+  background-color: rgba(148, 163, 184, 0.15);
+}
+
+.notes-list-item.active {
+  background-color: var(--accent-color);
+  color: #ffffff;
+}
+
+/* 右侧编辑区域 */
+
+.notes-editor {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.notes-toolbar {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.note-title-input {
+  flex: 1;
+  min-width: 180px;
+  padding: 0.45rem 0.7rem;
+  border-radius: 999px;
+  border: 1px solid var(--border-color);
+  background-color: var(--bg-elevated);
+  color: var(--text-color);
+  font-size: 0.95rem;
+}
+
+.note-title-input:focus {
+  outline: none;
+  border-color: var(--accent-color);
+}
+
+.notes-toolbar-actions {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+/* 复用已有 file-input-label / file-input-hidden 样式 */
+
+.small-button {
+  padding: 0.4rem 0.9rem;
+  font-size: 0.85rem;
+}
+
+.notes-textarea {
+  min-height: 620px;
+  flex: 1;
+}
+
+/* 响应式 */
+
+@media (max-width: 900px) {
+  .notes-layout {
+    flex-direction: column;
+  }
+
+  .notes-sidebar {
+    width: 100%;
+    max-width: none;
+  }
+}
+
