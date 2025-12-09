@@ -877,3 +877,20 @@
     grid-template-columns: minmax(0, 1fr);
   }
 }
+
+
+/* ===== JSON ↔ CSV Tool ===== */
+
+.json-csv-layout .code-area {
+  min-height: 260px;
+}
+
+.json-csv-buttons {
+  margin-top: 1.5rem;
+}
+
+.error-message {
+  margin-top: 0.25rem;
+  font-size: 0.85rem;
+  color: #b91c1c;
+}

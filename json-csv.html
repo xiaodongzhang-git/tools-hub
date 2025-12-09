@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>JSON ↔ CSV Converter – Online Tool | Tools Hub</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Convert JSON arrays to CSV and CSV files back to JSON. Paste JSON to preview CSV and download it as a file, or upload a CSV file and download the JSON result. All conversions run locally in your browser."
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <script src="assets/js/main.js" defer></script>
+    <script src="assets/js/include.js" defer></script>
+    <script src="assets/js/json-csv.js" defer></script>
+  </head>
+  <body>
+    <div class="app">
+      <div data-include="partials/header.html"></div>
+
+      <div class="app-body">
+        <div data-include="partials/sidebar.html"></div>
+
+        <main class="main">
+          <h1>JSON ↔ CSV Converter</h1>
+
+          <section class="tool-layout json-csv-layout">
+            <!-- 左侧：JSON 输入 + CSV 文件上传 -->
+            <div class="tool-column">
+              <!-- JSON → CSV -->
+              <div class="panel">
+                <h2 class="panel-title">JSON → CSV</h2>
+                <label for="jc-json-input" class="field-label">JSON input</label>
+                <textarea
+                  id="jc-json-input"
+                  class="code-area"
+                  placeholder='Paste a JSON array of objects, e.g.
+[
+  { "name": "Alice", "age": 30 },
+  { "name": "Bob", "age": 25 }
+]'
+                ></textarea>
+
+                <div class="tool-buttons json-csv-buttons">
+                  <button id="jc-json-to-csv-btn" type="button" class="primary-button">
+                    Convert to CSV
+                  </button>
+                  <button id="jc-clear-json-btn" type="button" class="secondary-button">
+                    Clear JSON
+                  </button>
+                </div>
+              </div>
+
+              <!-- CSV → JSON -->
+              <div class="panel mt-1">
+                <h2 class="panel-title">CSV → JSON</h2>
+                <label for="jc-csv-file" class="field-label">CSV file</label>
+
+                <div class="file-input-row">
+                  <input id="jc-csv-file" type="file" accept=".csv,text/csv" />
+                  <span id="jc-csv-file-name" class="file-name">No file selected</span>
+                </div>
+
+                <div class="tool-buttons json-csv-buttons">
+                  <button id="jc-csv-to-json-btn" type="button" class="secondary-button">
+                    Convert to JSON
+                  </button>
+                  <button id="jc-clear-csv-btn" type="button" class="secondary-button">
+                    Clear file
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- 右侧：只读预览 + 下载按钮 -->
+            <div class="tool-column">
+              <div class="output-header">
+                <span class="field-label">Preview (read-only)</span>
+                <button
+                  id="jc-download-btn"
+                  type="button"
+                  class="icon-button download-button"
+                  title="Download result"
+                  aria-label="Download result"
+                >
+                  ⬇️
+                </button>
+              </div>
+              <textarea
+                id="jc-output"
+                class="code-area"
+                readonly
+                placeholder="Converted result will be shown here. Use the download button to save it as a CSV or JSON file."
+              ></textarea>
+              <div id="jc-error" class="error-message"></div>
+            </div>
+          </section>
+
+          <section class="usage-section mt-2">
+            <h2>How to Use</h2>
+
+            <h3>JSON to CSV</h3>
+            <ol>
+              <li>Paste a JSON array of objects into the JSON input box on the left.</li>
+              <li>
+                Click <strong>Convert to CSV</strong>. The tool will use object keys as CSV headers
+                and show a read-only preview on the right.
+              </li>
+              <li>
+                Click the <strong>download</strong> button (⬇️) to save the CSV result as a file.
+              </li>
+            </ol>
+
+            <h3>CSV to JSON</h3>
+            <ol>
+              <li>Click <strong>Choose file</strong> and select a CSV file from your computer.</li>
+              <li>
+                Click <strong>Convert to JSON</strong>. The first row is treated as headers, and
+                each following row becomes a JSON object.
+              </li>
+              <li>
+                The JSON array is shown as a read-only preview on the right. Use the
+                <strong>download</strong> button (⬇️) to save it as a JSON file.
+              </li>
+            </ol>
+
+            <p>
+              This tool is designed for simple conversions between JSON arrays of objects and CSV
+              files with a header row. Nested values are serialized as JSON strings. All
+              conversions run locally in your browser; no data is uploaded or stored on a server.
+            </p>
+
+            <h2>Technical notes</h2>
+            <p>
+              JSON parsing uses the browser's native <code>JSON.parse</code> and
+              <code>JSON.stringify</code>. CSV parsing supports quoted fields, embedded commas, and
+              newlines within quoted text. Files are processed as plain text in the browser using
+              the <code>FileReader</code> API, and download links are generated dynamically using
+              <code>Blob</code> objects. This allows conversions without sending your data to any
+              backend service.
+            </p>
+          </section>
+        </main>
+      </div>
+
+      <div data-include="partials/footer.html"></div>
+    </div>
+  </body>
+</html>
