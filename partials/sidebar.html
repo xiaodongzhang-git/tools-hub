@@ -1,51 +1,60 @@
-<aside class="sidebar">
+<aside class="sidebar" aria-label="Tools sidebar">
+  <div class="sidebar-head">
     <div class="sidebar-title">Tools</div>
-    <ul class="nav-list">
-      <li class="nav-item">
-        <a class="nav-link" href="index.html" data-path="index.html">
-          JSON Formatter
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="json-csv.html" data-path="json-csv.html">
-          JSON ↔ CSV Converter
-        </a>
-      </li>      
-      <li class="nav-item">
-        <a class="nav-link" href="uuid-generator.html" data-path="uuid-generator.html">
-          UUID Generator
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="base64-text.html" data-path="base64-text.html">
-          Base64 Text Encoder / Decoder
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="image-to-base64.html" data-path="image-to-base64.html">
-          Image to Base64
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="url-encoder.html" data-path="url-encoder.html">
-          URL Encoder / Decoder
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="jwt-decoder.html" data-path="jwt-decoder.html">
-          JWT Decoder
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="text-counter.html" data-path="text-counter.html">
-          Text Counter
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="text-notes.html" data-path="text-notes.html">
-          Text Notes
-        </a>
-      </li>
-    </ul>
-  </aside>
-  
+    <!-- 可选：如果你想把主题切换放侧栏，也可以放这里 -->
+    <!-- <button class="theme-toggle" aria-label="Switch theme">🌙</button> -->
+  </div>
+
+  <!-- Search -->
+  <div class="sidebar-search">
+    <input class="tool-search" type="search" placeholder="Search tools..." aria-label="Search tools" />
+    <button class="tool-search-clear" type="button" aria-label="Clear search">×</button>
+  </div>
+
+  <!-- Recent -->
+  <div class="sidebar-section" id="recent-section" hidden>
+    <div class="section-title">Recent</div>
+    <ul class="nav-list" id="recent-list"></ul>
+  </div>
+
+  <!-- Groups -->
+  <div class="sidebar-section">
+    <div class="section-title">Categories</div>
+
+    <div class="nav-groups" id="tool-groups">
+      <details class="nav-group" data-group="json" open>
+        <summary class="nav-group-title">JSON</summary>
+        <ul class="nav-list">
+          <li class="nav-item"><a class="nav-link" href="index.html" data-path="index.html">JSON Formatter</a></li>
+          <li class="nav-item"><a class="nav-link" href="json-csv.html" data-path="json-csv.html">JSON ↔ CSV</a></li>
+        </ul>
+      </details>
+
+      <details class="nav-group" data-group="encode" open>
+        <summary class="nav-group-title">Encode / Decode</summary>
+        <ul class="nav-list">
+          <li class="nav-item"><a class="nav-link" href="base64-text.html" data-path="base64-text.html">Base64 (Text)</a></li>
+          <li class="nav-item"><a class="nav-link" href="image-to-base64.html" data-path="image-to-base64.html">Image → Base64</a></li>
+          <li class="nav-item"><a class="nav-link" href="url-encoder.html" data-path="url-encoder.html">URL Encode/Decode</a></li>
+          <li class="nav-item"><a class="nav-link" href="jwt-decoder.html" data-path="jwt-decoder.html">JWT Decoder</a></li>
+        </ul>
+      </details>
+
+      <details class="nav-group" data-group="gen">
+        <summary class="nav-group-title">Generators</summary>
+        <ul class="nav-list">
+          <li class="nav-item"><a class="nav-link" href="uuid-generator.html" data-path="uuid-generator.html">UUID Generator</a></li>
+        </ul>
+      </details>
+
+      <details class="nav-group" data-group="text">
+        <summary class="nav-group-title">Text</summary>
+        <ul class="nav-list">
+          <li class="nav-item"><a class="nav-link" href="text-counter.html" data-path="text-counter.html">Text Counter</a></li>
+          <li class="nav-item"><a class="nav-link" href="text-notes.html" data-path="text-notes.html">Notes</a></li>
+        </ul>
+      </details>
+    </div>
+  </div>
+
+</aside>
