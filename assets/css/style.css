@@ -1,17 +1,17 @@
 /* 基础主题变量 */
 :root {
-  --bg-color: #f5f5f5;
+  --bg-color: #f7f8fb;                 /* 比 #f5f5f5 更干净 */
   --bg-elevated: #ffffff;
-  --text-color: #222222;
-  --border-color: #dddddd;
+  --text-color: #0f172a;               /* 比 #222 更清晰 */
+  --border-color: rgba(15, 23, 42, .08); /* 关键：别用 #ddd 这种硬边 */
   --accent-color: #3b82f6;
 }
 
 body.dark-theme {
-  --bg-color: #111827;
-  --bg-elevated: #1f2933;
-  --text-color: #e5e7eb;
-  --border-color: #374151;
+  --bg-color: #0b1220;                 /* 更深一点，更高级 */
+  --bg-elevated: #0f172a;              /* 建议别用 #1f2933（偏脏） */
+  --text-color: rgba(226, 232, 240, .92);
+  --border-color: rgba(148, 163, 184, .16);
   --accent-color: #60a5fa;
 }
 
@@ -36,6 +36,17 @@ body {
   flex-direction: column;
   min-height: 100vh;
 }
+
+.nav-group{
+  background: transparent;
+  border: none;
+}
+
+.tool-search{
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-color);
+}
+
 
 /* Header */
 
@@ -160,7 +171,19 @@ body {
   /* 如果你的 header 高度不是 56px，可以微调 */
   height: calc(100vh - 56px);
   overflow-y: auto;
+  background: linear-gradient(
+    to bottom,
+    color-mix(in srgb, var(--bg-color) 96%, #fff),
+    var(--bg-color)
+  );
+  border-right: 1px solid var(--border-color);
+  box-shadow: inset -1px 0 0 rgba(15,23,42,0.03);
 }
+
+body.dark-theme .sidebar{
+  box-shadow: inset -1px 0 0 rgba(148,163,184,0.06);
+}
+
 
 .sidebar-title {
   font-size: 0.75rem;
@@ -226,17 +249,8 @@ body {
 
 /* 当前激活状态（根据你的 JS，可能是 active 或 is-active，都加上） */
 .nav-link.active,
-.nav-link.is-active {
-  background: rgba(59, 130, 246, 0.12);
-  /* 轻微蓝色高亮，可结合你自己的 accent 色 */
-  color: var(--accent-color, #2563eb);
-  font-weight: 600;
-  box-shadow: 0 0 0 1px rgba(59, 130, 246, 0.25);
-}
-
-.nav-link.active::before,
-.nav-link.is-active::before {
-  background-color: var(--accent-color, #2563eb);
+.nav-link.is-active{
+  background: color-mix(in srgb, var(--accent-color) 12%, transparent);
 }
 
 /* 深色模式下稍微调暗一点（如果你有 data-theme 或 .dark，可以适配） */
@@ -276,13 +290,198 @@ body {
   }
 }
 
+/* ===== Optimal Sidebar Add-ons ===== */
+
+.sidebar-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.sidebar-search {
+  position: sticky;
+  top: 0;              /* ✅关键：不要用 56px */
+  z-index: 5;
+  padding: 0.4rem 0 0.6rem;
+  background: var(--bg-elevated);
+  border-bottom: 1px solid rgba(148, 163, 184, 0.16);
+  margin-bottom: 0.35rem;
+}
+
+
+.tool-search {
+  width: 100%;
+  border: 1px solid var(--border-color);
+  background: var(--bg, transparent);
+  color: var(--text-color, #0f172a);
+  border-radius: 0.8rem;
+  padding: 0.55rem 2rem 0.55rem 0.75rem;
+  font-size: 0.9rem;
+  outline: none;
+}
+
+.tool-search:focus {
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.18);
+  border-color: rgba(59, 130, 246, 0.45);
+}
+
+.tool-search-clear {
+  position: absolute;
+  right: 0.55rem;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  background: transparent;
+  color: var(--text-muted, #94a3b8);
+  font-size: 1.1rem;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.sidebar-search {
+  position: relative;
+}
+.sidebar-search.has-value .tool-search-clear {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.sidebar-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.section-title {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted, #94a3b8);
+  padding: 0 0.4rem;
+  margin-top: 0.15rem;
+}
+
+.nav-groups {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.nav-group {
+  border: 1px solid rgba(148, 163, 184, 0.22);
+  border-radius: 0.9rem;
+  padding: 0.2rem;
+  background: rgba(148, 163, 184, 0.06);
+}
+
+.nav-group-title {
+  list-style: none;
+  cursor: pointer;
+  user-select: none;
+  font-size: 0.88rem;
+  font-weight: 650;
+  color: var(--text-color, #0f172a);
+  padding: 0.45rem 0.55rem;
+  border-radius: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-group-title::-webkit-details-marker {
+  display: none;
+}
+
+.nav-group-title::after {
+  content: "▾";
+  opacity: 0.6;
+  transform: rotate(0deg);
+  transition: transform 0.15s ease;
+}
+
+.nav-group[open] .nav-group-title::after {
+  transform: rotate(180deg);
+}
+
+.nav-group .nav-list {
+  padding: 0.2rem;
+  gap: 0.12rem;
+}
+
+.nav-group .nav-link {
+  background: transparent;
+}
+
+/* 搜索命中高亮（可选） */
+.nav-link.search-hit {
+  box-shadow: 0 0 0 1px rgba(59, 130, 246, 0.22);
+}
+
+/* Footer */
+.sidebar-footer {
+  margin-top: auto;
+  padding-top: 0.5rem;
+  border-top: 1px solid rgba(148, 163, 184, 0.25);
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.footer-link {
+  font-size: 0.85rem;
+  color: var(--text-muted, #94a3b8);
+  text-decoration: none;
+}
+
+.footer-link:hover {
+  text-decoration: underline;
+}
+
+/* ===== Mobile: 抽屉式更好（强烈推荐） ===== */
+@media (max-width: 900px) {
+  .sidebar {
+    position: fixed;
+    top: 56px;
+    left: 0;
+    bottom: 0;
+    width: min(92vw, 340px);
+    max-width: none;
+    height: calc(100vh - 56px);
+    transform: translateX(-105%);
+    transition: transform 0.2s ease;
+    border-right: 1px solid var(--border-color);
+    z-index: 50;
+  }
+
+  .app.sidebar-open .sidebar {
+    transform: translateX(0);
+  }
+
+  /* 你原来的移动端把 nav-list 横向排布会更乱，这里直接禁用 */
+  .nav-list {
+    flex-direction: column;
+    flex-wrap: nowrap;
+  }
+}
+
 
 /* Main 内容 */
 
 .main {
-  flex: 1;
-  padding: 1.25rem 1.5rem 2.5rem;
-  /* max-width: 960px; */
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+  margin: 14px;
+  padding: 18px;
+}
+
+/* dark 下 shadow 更克制 */
+body.dark-theme .main {
+  box-shadow: 0 10px 30px rgba(0,0,0,0.35);
 }
 
 .main h1 {
@@ -1038,191 +1237,151 @@ body {
   color: #b91c1c;
 }
 
-/* ===== Optimal Sidebar Add-ons ===== */
 
-.sidebar-head {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.5rem;
-}
+/* ===== Sidebar polish: less borders, clearer hierarchy ===== */
 
-.sidebar-search {
-  position: sticky;
-  top: 0;              /* ✅关键：不要用 56px */
-  z-index: 5;
-  padding: 0.4rem 0 0.6rem;
+/* 侧栏整体更像独立面板：轻微对比 + 更干净 */
+.sidebar {
   background: var(--bg-elevated);
-  border-bottom: 1px solid rgba(148, 163, 184, 0.16);
-  margin-bottom: 0.35rem;
+  border-right: 1px solid rgba(148, 163, 184, 0.18);
+  padding: 0.85rem 0.75rem;
 }
 
-
-.tool-search {
-  width: 100%;
-  border: 1px solid var(--border-color);
-  background: var(--bg, transparent);
-  color: var(--text-color, #0f172a);
-  border-radius: 0.8rem;
-  padding: 0.55rem 2rem 0.55rem 0.75rem;
-  font-size: 0.9rem;
-  outline: none;
-}
-
-.tool-search:focus {
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.18);
-  border-color: rgba(59, 130, 246, 0.45);
-}
-
-.tool-search-clear {
-  position: absolute;
-  right: 0.55rem;
-  top: 50%;
-  transform: translateY(-50%);
-  border: none;
-  background: transparent;
-  color: var(--text-muted, #94a3b8);
-  font-size: 1.1rem;
-  cursor: pointer;
-  opacity: 0;
-  pointer-events: none;
-}
-
-.sidebar-search {
-  position: relative;
-}
-.sidebar-search.has-value .tool-search-clear {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-.sidebar-section {
-  display: flex;
-  flex-direction: column;
-  gap: 0.45rem;
-}
-
+/* 标题更克制一点 */
+.sidebar-title,
 .section-title {
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+  letter-spacing: 0.10em;
   color: var(--text-muted, #94a3b8);
-  padding: 0 0.4rem;
-  margin-top: 0.15rem;
 }
 
-.nav-groups {
-  display: flex;
-  flex-direction: column;
-  gap: 0.35rem;
-}
-
-.nav-group {
+/* 搜索区：减少边框存在感，像“输入框”而不是“组件” */
+.tool-search {
   border: 1px solid rgba(148, 163, 184, 0.22);
-  border-radius: 0.9rem;
-  padding: 0.2rem;
   background: rgba(148, 163, 184, 0.06);
 }
-
-.nav-group-title {
-  list-style: none;
-  cursor: pointer;
-  user-select: none;
-  font-size: 0.88rem;
-  font-weight: 650;
-  color: var(--text-color, #0f172a);
-  padding: 0.45rem 0.55rem;
-  border-radius: 0.75rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.nav-group-title::-webkit-details-marker {
-  display: none;
-}
-
-.nav-group-title::after {
-  content: "▾";
-  opacity: 0.6;
-  transform: rotate(0deg);
-  transition: transform 0.15s ease;
-}
-
-.nav-group[open] .nav-group-title::after {
-  transform: rotate(180deg);
-}
-
-.nav-group .nav-list {
-  padding: 0.2rem;
-  gap: 0.12rem;
-}
-
-.nav-group .nav-link {
-  background: transparent;
-}
-
-/* 搜索命中高亮（可选） */
-.nav-link.search-hit {
-  box-shadow: 0 0 0 1px rgba(59, 130, 246, 0.22);
-}
-
-/* Footer */
-.sidebar-footer {
-  margin-top: auto;
-  padding-top: 0.5rem;
-  border-top: 1px solid rgba(148, 163, 184, 0.25);
-  display: flex;
-  gap: 0.75rem;
-  flex-wrap: wrap;
-}
-
-.footer-link {
-  font-size: 0.85rem;
-  color: var(--text-muted, #94a3b8);
-  text-decoration: none;
-}
-
-.footer-link:hover {
-  text-decoration: underline;
-}
-
-/* ===== Dark Theme Adapt (与你的 JS 一致) ===== */
-body.dark-theme .nav-group {
+body.dark-theme .tool-search {
   background: rgba(148, 163, 184, 0.08);
   border-color: rgba(148, 163, 184, 0.22);
 }
 
-body.dark-theme .tool-search {
-  background: rgba(15, 23, 42, 0.35);
+/* ===== 重点：把 nav-group 从“卡片”改成“分组标题 + 缩进列表” ===== */
+.nav-groups {
+  gap: 0.25rem;
 }
 
-/* ===== Mobile: 抽屉式更好（强烈推荐） ===== */
-@media (max-width: 900px) {
-  .sidebar {
-    position: fixed;
-    top: 56px;
-    left: 0;
-    bottom: 0;
-    width: min(92vw, 340px);
-    max-width: none;
-    height: calc(100vh - 56px);
-    transform: translateX(-105%);
-    transition: transform 0.2s ease;
-    border-right: 1px solid var(--border-color);
-    z-index: 50;
-  }
-
-  .app.sidebar-open .sidebar {
-    transform: translateX(0);
-  }
-
-  /* 你原来的移动端把 nav-list 横向排布会更乱，这里直接禁用 */
-  .nav-list {
-    flex-direction: column;
-    flex-wrap: nowrap;
-  }
-
-  /* 可选：遮罩层（需要你在 .app 里放一个 overlay 元素） */
+/* 去掉每组的外框和卡片背景（丑的根源） */
+.nav-group {
+  border: none;
+  background: transparent;
+  padding: 0;
 }
+
+/* 分组标题更像 header */
+.nav-group-title {
+  padding: 0.5rem 0.55rem;
+  border-radius: 0.7rem;
+  font-weight: 650;
+  font-size: 0.9rem;
+  color: var(--text-color, #0f172a);
+  background: transparent;
+  transition: background-color 0.15s ease;
+}
+.nav-group-title:hover {
+  background: rgba(148, 163, 184, 0.12);
+}
+
+/* open 的分组标题给一点点底色，强化层级 */
+.nav-group[open] .nav-group-title {
+  background: rgba(148, 163, 184, 0.10);
+}
+
+/* 右侧箭头更精致（可选） */
+.nav-group-title::after {
+  content: "⌄";
+  opacity: 0.55;
+  transform: rotate(0deg);
+  transition: transform 0.15s ease, opacity 0.15s ease;
+  font-size: 0.95rem;
+}
+.nav-group[open] .nav-group-title::after {
+  transform: rotate(180deg);
+  opacity: 0.75;
+}
+
+/* 子列表：缩进 + 竖向引导线（立刻高级） */
+.nav-group .nav-list {
+  padding: 0.15rem 0.2rem 0.25rem 0.65rem;
+  margin-left: 0.55rem;
+  border-left: 1px solid rgba(148, 163, 184, 0.18);
+  gap: 0.1rem;
+}
+
+/* 导航项：更像“列表项”而不是“按钮” */
+.nav-link {
+  padding: 0.42rem 0.6rem 0.42rem 0.75rem;
+  border-radius: 0.65rem;
+  font-size: 0.9rem;
+  color: var(--text-color, #0f172a);
+  transition: background-color 0.15s ease, box-shadow 0.15s ease, color 0.15s ease;
+}
+
+/* 去掉位移，换成更稳的 hover */
+.nav-link:hover {
+  transform: none; /* 关键：干掉 translateX */
+  background: rgba(148, 163, 184, 0.14);
+  box-shadow: inset 0 0 0 1px rgba(148, 163, 184, 0.18);
+}
+
+/* 左色条：更贴边一点更“导航” */
+.nav-link::before {
+  left: 2px;
+  width: 3px;
+  height: 62%;
+  border-radius: 999px;
+}
+
+/* active：更清爽、少按钮感 */
+.nav-link.active,
+.nav-link.is-active {
+  background: rgba(59, 130, 246, 0.10);
+  color: var(--accent-color, #2563eb);
+  font-weight: 650;
+  box-shadow: none;
+}
+.nav-link.active::before,
+.nav-link.is-active::before {
+  background: var(--accent-color, #2563eb);
+}
+
+/* 键盘可访问性（高级感也来自这里） */
+.nav-link:focus-visible,
+.nav-group-title:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.22);
+}
+
+/* 深色模式 hover/线条更柔一点 */
+body.dark-theme .nav-group .nav-list {
+  border-left-color: rgba(148, 163, 184, 0.22);
+}
+body.dark-theme .nav-link:hover {
+  background: rgba(148, 163, 184, 0.10);
+  box-shadow: inset 0 0 0 1px rgba(148, 163, 184, 0.16);
+}
+
+/* 侧栏滚动条也影响“精致感”（可选） */
+.sidebar {
+  scrollbar-gutter: stable;
+}
+.sidebar::-webkit-scrollbar {
+  width: 10px;
+}
+.sidebar::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.25);
+  border-radius: 999px;
+  border: 3px solid transparent;
+  background-clip: content-box;
+}
+
+.nav-link:hover::after{ opacity: .6; }
+.nav-link.active::after{ opacity: .9; background: var(--accent-color, #2563eb); }
