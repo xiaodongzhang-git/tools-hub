@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>JSON Diff – Compare Two JSONs Online | Tools Hub</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description"
+    content="Compare two JSON documents in your browser and see added/removed/changed fields. No data is sent to any server." />
+
+  <link rel="stylesheet" href="assets/css/style.css" />
+
+  <script src="assets/js/main.js" defer></script>
+  <script src="assets/js/include.js" defer></script>
+  <script src="assets/js/json-diff.js" defer></script>
+</head>
+
+<body>
+  <div class="app">
+    <div data-include="partials/header.html"></div>
+
+    <div class="app-body">
+      <div data-include="partials/sidebar.html"></div>
+
+      <main class="main jsondiff-page">
+        <h1>JSON Diff</h1>
+
+        <section class="jsondiff-layout">
+          <div class="jsondiff-head">
+            <div class="jsondiff-buttons">
+              <button id="diff-compare-btn" type="button" class="primary-button">Compare</button>
+              <button id="diff-swap-btn" type="button" class="secondary-button">Swap</button>
+              <button id="diff-format-left-btn" type="button" class="secondary-button">Format Left</button>
+              <button id="diff-format-right-btn" type="button" class="secondary-button">Format Right</button>
+              <button id="diff-clear-btn" type="button" class="secondary-button">Clear</button>
+            </div>
+
+            <label class="jsondiff-option">
+              <input type="checkbox" id="diff-sort-keys" />
+              Sort object keys before diff
+            </label>
+          </div>
+
+          <div class="jsondiff-inputs">
+            <div class="jsondiff-panel">
+              <label for="diff-left" class="field-label">Left JSON</label>
+              <textarea id="diff-left" class="jd-code-area code-area small-height" spellcheck="false"
+                placeholder='{"a":1,"b":2}'></textarea>
+              <div id="diff-left-error" class="jsondiff-error"></div>
+            </div>
+
+            <div class="jsondiff-panel">
+              <label for="diff-right" class="field-label">Right JSON</label>
+              <textarea id="diff-right" class="jd-code-area code-area small-height" spellcheck="false"
+                placeholder='{"a":1,"b":3,"c":4}'></textarea>
+              <div id="diff-right-error" class="jsondiff-error"></div>
+            </div>
+          </div>
+
+          <div id="diff-result-wrap" class="jsondiff-result" hidden>
+            <div class="jsondiff-result-head">
+              <div id="diff-meta" class="jsondiff-meta"></div>
+              <button id="diff-copy-btn" type="button" class="secondary-button">Copy result</button>
+            </div>
+
+            <div id="diff-summary" class="jsondiff-summary"></div>
+            <div id="diff-list" class="jsondiff-list"></div>
+          </div>
+        </section>
+
+        <section class="usage-section mt-2">
+          <h2>How to Use</h2>
+          <ol>
+            <li>Paste JSON into both text areas.</li>
+            <li>Click <strong>Compare</strong> (or press <code>Ctrl</code> + <code>Enter</code> / <code>⌘</code> + <code>Enter</code>).</li>
+            <li>Differences will be shown as Added / Removed / Changed.</li>
+          </ol>
+          <p>
+            All processing is done locally in your browser. Nothing is uploaded.
+          </p>
+        </section>
+      </main>
+    </div>
+
+    <div data-include="partials/footer.html"></div>
+  </div>
+</body>
+
+</html>

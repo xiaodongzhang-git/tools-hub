@@ -869,6 +869,10 @@ body.dark-theme .main {
   min-height: 160px;
 }
 
+.big-small-height {
+  min-height: 60px;
+}
+
 .mt-1 {
   margin-top: 0.75rem;
 }
@@ -1385,3 +1389,232 @@ body.dark-theme .nav-link:hover {
 
 .nav-link:hover::after{ opacity: .6; }
 .nav-link.active::after{ opacity: .9; background: var(--accent-color, #2563eb); }
+
+
+
+/* json diff */
+/* JSON Diff */
+.jsondiff-head {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.jsondiff-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.jsondiff-option {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  opacity: .9;
+  font-size: 14px;
+}
+
+.jsondiff-inputs {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 980px) {
+  .jsondiff-inputs {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.jsondiff-error {
+  margin-top: 8px;
+  color: #ff6b6b;
+  white-space: pre-wrap;
+  min-height: 18px;
+}
+
+.jsondiff-result {
+  margin-top: 14px;
+}
+
+.jsondiff-result-head {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.jsondiff-meta {
+  opacity: .9;
+  font-size: 14px;
+}
+
+.jsondiff-ok {
+  padding: 10px 12px;
+  border-radius: 12px;
+}
+
+.jsondiff-item {
+  margin-top: 12px;
+  padding: 12px;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,.10);
+}
+
+.jsondiff-item-head {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.jsondiff-path {
+  font-size: 12px;
+  opacity: .9;
+}
+
+.jsondiff-item-body {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 980px) {
+  .jsondiff-item-body {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.jsondiff-col-title {
+  font-size: 12px;
+  opacity: .8;
+  margin-bottom: 6px;
+}
+
+.jsondiff-pre {
+  overflow: auto;
+}
+
+.jsondiff-badge {
+  font-size: 12px;
+  padding: 3px 8px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.15);
+}
+
+/* 仅 JSON Diff 页面放宽 main */
+.jsondiff-page {
+  max-width: none;   /* 如果 main 有 max-width，这句会解除 */
+  width: 100%;
+}
+
+.jd-code-area {
+  min-height: 620px;
+}
+
+
+/* JSON Diff: 目录（锚点导航） */
+.jsondiff-toc {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+/* 目录项：增加“卡片感”，更符合深色背景 */
+.jsondiff-toc-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 12px;
+
+  text-decoration: none;
+
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-color: rgba(120, 130, 150, 0.35);
+  transition: background .15s ease, border-color .15s ease, transform .05s ease;
+}
+
+.jsondiff-toc-item:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(120, 130, 150, 0.55);
+}
+
+.jsondiff-toc-item:active {
+  transform: translateY(1px);
+}
+
+/* badge：更柔和一些，别太“硬” */
+.jsondiff-toc-badge {
+  font-size: 12px;
+  padding: 3px 10px;
+  border-radius: 999px;
+
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  color: rgba(255, 255, 255, 0.88);
+
+  opacity: 1;
+}
+
+/* path：稍微降一点，让 badge 成为视觉焦点 */
+.jsondiff-toc-path {
+  font-size: 12px;
+  opacity: 0.85;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ========== 可选：按类型上色（推荐） ==========
+   你现在目录 badge 没有类型 class 的话，
+   先看下面 JS 改法（很小）再启用这段 */
+.jsondiff-toc-badge.jsondiff-chg {
+  background: rgba(180, 120, 255, 0.14);
+  border-color: rgba(120, 130, 150, 0.45);
+  color: rgba(225, 205, 255, 0.96);
+}
+
+.jsondiff-toc-badge.jsondiff-add {
+  background: rgba(80, 200, 160, 0.14);
+  border-color: rgba(80, 200, 160, 0.45);
+  color: rgba(185, 245, 225, 0.96);
+}
+
+.jsondiff-toc-badge.jsondiff-del {
+  background: rgba(255, 120, 120, 0.14);
+  border-color: rgba(255, 120, 120, 0.45);
+  color: rgba(255, 205, 205, 0.96);
+}
+
+/* JSON Diff: 定位高亮（用紫/白，避免蓝色糊在背景里） */
+.jsondiff-item.is-target {
+  outline: 2px solid rgba(90, 100, 120, 0.55);
+  box-shadow: 0 0 0 6px rgba(90, 100, 120, 0.12);
+  /* border-color: rgba(255, 255, 255, 0.14); */
+}
+
+/* 高亮时 path 更醒目一点 */
+.jsondiff-item.is-target .jsondiff-path {
+  border-color: rgba(120, 130, 150, 0.30);
+}
+
+/* ✅ 强制让最外层 diff item 有边框（dark/light 都能看见） */
+.jsondiff-item {
+  border: 1px solid rgba(120, 130, 150, 0.30) !important;
+  border-radius: 14px;
+  background: transparent; /* 保持你现在风格，不额外加底色 */
+}
+
+/* hover 时更明显一点（可选） */
+.jsondiff-item:hover {
+  border-color: rgba(120, 130, 150, 0.45) !important;
+}
+
+
