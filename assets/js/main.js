@@ -49,7 +49,7 @@ function initLayout() {
   }
 
   // 当前导航高亮
-  const currentPath = window.location.pathname.split("/").pop() || "index.html";
+  const currentPath = window.location.pathname.split("/").pop() || "";
 
   navLinks.forEach((link) => {
     const path = link.getAttribute("data-path");
@@ -117,7 +117,7 @@ const RECENT_KEY = "toolsHubRecent";
 const MAX_RECENT = 5;
 
 function getCurrentPath() {
-  return window.location.pathname.split("/").pop() || "index.html";
+  return window.location.pathname.split("/").pop() || "";
 }
 
 function initActiveLinkAndOpenGroup() {

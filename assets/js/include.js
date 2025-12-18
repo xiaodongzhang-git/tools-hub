@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // include.js 里加载完 sidebar 后
-  const currentPath = location.pathname.split("/").pop() || "index.html";
+  const currentPath = location.pathname.split("/").pop() || "";
   document
     .querySelectorAll(".nav-link[data-path]")
     .forEach((link) => {
