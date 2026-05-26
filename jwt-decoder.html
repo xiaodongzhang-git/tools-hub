@@ -21,8 +21,22 @@
     <div class="app-body">
       <div data-include="partials/sidebar.html"></div>
 
-      <main class="main">
-        <h1>JWT Decoder</h1>
+      <main class="main wide-main">
+        <section class="tool-hero compact-hero">
+          <div>
+            <p class="eyebrow">Encode / Decode</p>
+            <h1>JWT Decoder</h1>
+            <p class="tool-subtitle">
+              Decode JWT headers and payloads into readable JSON without uploading tokens to a
+              server. Signature verification is intentionally not performed here.
+            </p>
+          </div>
+          <div class="hero-metrics" aria-label="Tool highlights">
+            <span>Header</span>
+            <span>Payload</span>
+            <span>Local only</span>
+          </div>
+        </section>
 
         <section class="jwt-layout">
           <label for="jwt-input" class="field-label">JWT Token</label>

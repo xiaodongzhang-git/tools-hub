@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>SEO Meta Tag Generator – Free Title, Description & OG Tags | Tools Hub</title>
+  <meta name="description"
+    content="Generate SEO meta tags, Open Graph tags, Twitter card tags, canonical links, and JSON-LD website schema. Free browser-based SEO meta tag generator." />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta property="og:title" content="SEO Meta Tag Generator – Tools Hub" />
+  <meta property="og:description"
+    content="Create clean meta tags and social preview tags for websites, landing pages, tools, and blog posts." />
+  <meta property="og:type" content="website" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="canonical" href="https://tools-hub.dev/seo-meta-generator.html" />
+  <script src="assets/js/main.js" defer></script>
+  <script src="assets/js/include.js" defer></script>
+  <script src="assets/js/seo-meta-generator.js" defer></script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "SEO Meta Tag Generator",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Any",
+      "url": "https://tools-hub.dev/seo-meta-generator.html",
+      "description": "A free browser-based tool for generating SEO title, description, canonical, Open Graph, Twitter card, and JSON-LD tags."
+    }
+  </script>
+</head>
+
+<body>
+  <div class="app">
+    <div data-include="partials/header.html"></div>
+
+    <div class="app-body">
+      <div data-include="partials/sidebar.html"></div>
+
+      <main class="main wide-main">
+        <section class="tool-hero">
+          <div>
+            <p class="eyebrow">SEO Tools</p>
+            <h1>SEO Meta Tag Generator</h1>
+            <p class="tool-subtitle">
+              Generate clean title, description, canonical, Open Graph, Twitter card, and JSON-LD
+              tags for landing pages, blogs, products, and online tools.
+            </p>
+          </div>
+          <div class="hero-metrics" aria-label="Tool highlights">
+            <span>Search preview</span>
+            <span>Social tags</span>
+            <span>Copy ready</span>
+          </div>
+        </section>
+
+        <section class="generator-grid">
+          <div class="tool-panel">
+            <div class="form-grid">
+              <label class="field-block">
+                <span class="field-label">Page title</span>
+                <input id="meta-title" class="text-input" type="text"
+                  placeholder="Example: AI Resume Builder – Create a Better Resume Fast" />
+              </label>
+
+              <label class="field-block">
+                <span class="field-label">Page URL</span>
+                <input id="meta-url" class="text-input" type="url" placeholder="https://example.com/page" />
+              </label>
+
+              <label class="field-block">
+                <span class="field-label">Site name</span>
+                <input id="meta-site" class="text-input" type="text" placeholder="Example: Tools Hub" />
+              </label>
+
+              <label class="field-block">
+                <span class="field-label">Image URL</span>
+                <input id="meta-image" class="text-input" type="url" placeholder="https://example.com/og-image.png" />
+              </label>
+            </div>
+
+            <label class="field-block mt-1">
+              <span class="field-label">Meta description</span>
+              <textarea id="meta-description" class="code-area compact-area"
+                placeholder="Write a concise description around 140-160 characters."></textarea>
+            </label>
+
+            <label class="field-block mt-1">
+              <span class="field-label">Keywords or page topic</span>
+              <input id="meta-keywords" class="text-input" type="text"
+                placeholder="Example: AI resume builder, resume generator, job search" />
+            </label>
+
+            <div class="button-row">
+              <button id="generate-meta-btn" type="button" class="primary-button">Generate tags</button>
+              <button id="clear-meta-btn" type="button" class="secondary-button">Clear</button>
+            </div>
+          </div>
+
+          <div class="tool-panel">
+            <h2 class="panel-title">Preview</h2>
+            <div class="serp-preview" aria-label="Search result preview">
+              <div id="preview-url" class="serp-url">https://example.com/page</div>
+              <div id="preview-title" class="serp-title">Your SEO title will appear here</div>
+              <div id="preview-description" class="serp-description">
+                Your meta description preview will appear here.
+              </div>
+            </div>
+
+            <div class="meta-score-grid" aria-label="SEO checks">
+              <div class="meta-check"><span>Title length</span><strong id="title-count">0</strong></div>
+              <div class="meta-check"><span>Description length</span><strong id="description-count">0</strong></div>
+            </div>
+
+            <div class="output-header mt-1">
+              <span class="field-label">Generated tags</span>
+              <button id="copy-meta-btn" type="button" class="icon-button copy-button" title="Copy meta tags"
+                aria-label="Copy meta tags">📋</button>
+            </div>
+            <textarea id="meta-output" class="code-area meta-output"
+              placeholder="Generated HTML tags will appear here..."></textarea>
+          </div>
+        </section>
+
+        <section class="usage-section mt-2">
+          <h2>What this tool generates</h2>
+          <ul>
+            <li>Title, description, canonical, robots, and keywords meta tags.</li>
+            <li>Open Graph tags for link previews on social platforms and messaging apps.</li>
+            <li>Twitter card tags for richer previews.</li>
+            <li>Basic JSON-LD WebPage schema for structured data.</li>
+          </ul>
+        </section>
+      </main>
+    </div>
+
+    <div data-include="partials/footer.html"></div>
+  </div>
+</body>
+
+</html>

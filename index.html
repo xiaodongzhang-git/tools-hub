@@ -3,10 +3,14 @@
 
 <head>
   <meta charset="utf-8" />
-  <title>JSON Formatter Online – Free & Fast | Tools Hub</title>
+  <title>JSON Formatter Online – Free Developer & AI Tools | Tools Hub</title>
   <meta name="description"
-    content="Free online JSON formatter with syntax highlighting and collapsible view. Format, validate, and beautify JSON instantly in your browser. No data is uploaded." />
+    content="Format JSON online with syntax highlighting, then explore free AI, encoding, UUID, text, and developer tools that run directly in your browser." />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta property="og:title" content="Tools Hub – Free Developer & AI Tools" />
+  <meta property="og:description"
+    content="Fast browser-based tools for JSON, AI prompts, token cost estimates, encoding, JWTs, UUIDs, and text work." />
+  <meta property="og:type" content="website" />
   <link rel="stylesheet" href="assets/css/style.css" />
   <link rel="canonical" href="https://tools-hub.dev/" />
   <!-- 先主布局逻辑，再 include，再本页工具逻辑 -->
@@ -22,8 +26,50 @@
     <div class="app-body">
       <div data-include="partials/sidebar.html"></div>
 
-      <main class="main">
-        <h1>JSON Formatter</h1>
+      <main class="main wide-main">
+        <section class="tool-hero">
+          <div>
+            <p class="eyebrow">Free browser tools</p>
+            <h1>JSON Formatter</h1>
+            <p class="tool-subtitle">
+              Format, validate, and inspect JSON locally in your browser. Tools Hub also includes
+              practical AI, encoding, generator, and text utilities for everyday work.
+            </p>
+          </div>
+          <div class="hero-metrics" aria-label="Tool highlights">
+            <span>Private</span>
+            <span>Fast</span>
+            <span>No signup</span>
+          </div>
+        </section>
+
+        <section class="featured-tools" aria-label="Featured tools">
+          <a class="feature-card" href="ai-prompt-generator.html">
+            <span class="feature-kicker">AI</span>
+            <strong>AI Prompt Generator</strong>
+            <span>Create reusable prompts for SEO, marketing, coding, learning, and business tasks.</span>
+          </a>
+          <a class="feature-card" href="ai-token-calculator.html">
+            <span class="feature-kicker">AI Cost</span>
+            <strong>Token & Cost Estimator</strong>
+            <span>Estimate prompt size, output tokens, batch volume, and AI API cost.</span>
+          </a>
+          <a class="feature-card" href="seo-meta-generator.html">
+            <span class="feature-kicker">SEO</span>
+            <strong>SEO Meta Tag Generator</strong>
+            <span>Create title, description, Open Graph, Twitter card, and JSON-LD tags.</span>
+          </a>
+          <a class="feature-card" href="utm-builder.html">
+            <span class="feature-kicker">Marketing</span>
+            <strong>UTM Builder</strong>
+            <span>Build clean campaign URLs for ads, email, social, and affiliate tracking.</span>
+          </a>
+          <a class="feature-card" href="image-compressor.html">
+            <span class="feature-kicker">Images</span>
+            <strong>Image Compressor</strong>
+            <span>Resize and compress JPG, PNG, and WebP images directly in your browser.</span>
+          </a>
+        </section>
 
         <!-- 上半部分：左右输入/输出 + 中间竖排按钮 -->
         <section class="tool-layout">

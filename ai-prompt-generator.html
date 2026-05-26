@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>AI Prompt Generator – Free ChatGPT Prompt Builder | Tools Hub</title>
+  <meta name="description"
+    content="Create structured AI prompts for writing, SEO, marketing, coding, learning, and business tasks. Free prompt generator that runs in your browser." />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta property="og:title" content="AI Prompt Generator – Tools Hub" />
+  <meta property="og:description"
+    content="Build clear, reusable prompts for ChatGPT and other AI tools. Choose a task, tone, output format, and constraints." />
+  <meta property="og:type" content="website" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="canonical" href="https://tools-hub.dev/ai-prompt-generator.html" />
+  <script src="assets/js/main.js" defer></script>
+  <script src="assets/js/include.js" defer></script>
+  <script src="assets/js/ai-prompt-generator.js" defer></script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "AI Prompt Generator",
+      "applicationCategory": "ProductivityApplication",
+      "operatingSystem": "Any",
+      "url": "https://tools-hub.dev/ai-prompt-generator.html",
+      "description": "A free browser-based prompt generator for AI writing, SEO, coding, and business tasks."
+    }
+  </script>
+</head>
+
+<body>
+  <div class="app">
+    <div data-include="partials/header.html"></div>
+
+    <div class="app-body">
+      <div data-include="partials/sidebar.html"></div>
+
+      <main class="main wide-main">
+        <section class="tool-hero">
+          <div>
+            <p class="eyebrow">AI Tools</p>
+            <h1>AI Prompt Generator</h1>
+            <p class="tool-subtitle">
+              Build useful prompts for ChatGPT, Claude, Gemini, and other AI assistants. Pick a goal,
+              add context, and generate a polished prompt you can reuse.
+            </p>
+          </div>
+          <div class="hero-metrics" aria-label="Tool highlights">
+            <span>Local only</span>
+            <span>No signup</span>
+            <span>Copy ready</span>
+          </div>
+        </section>
+
+        <section class="generator-grid">
+          <div class="tool-panel">
+            <div class="form-grid">
+              <label class="field-block">
+                <span class="field-label">Prompt type</span>
+                <select id="prompt-type" class="select-input">
+                  <option value="seo">SEO article brief</option>
+                  <option value="marketing">Marketing copy</option>
+                  <option value="code">Code assistant</option>
+                  <option value="learning">Learning tutor</option>
+                  <option value="business">Business analysis</option>
+                  <option value="custom">Custom task</option>
+                </select>
+              </label>
+
+              <label class="field-block">
+                <span class="field-label">Tone</span>
+                <select id="prompt-tone" class="select-input">
+                  <option>Clear and practical</option>
+                  <option>Professional</option>
+                  <option>Friendly</option>
+                  <option>Persuasive</option>
+                  <option>Technical</option>
+                  <option>Concise</option>
+                </select>
+              </label>
+
+              <label class="field-block">
+                <span class="field-label">Output format</span>
+                <select id="prompt-format" class="select-input">
+                  <option>Step-by-step plan</option>
+                  <option>Markdown outline</option>
+                  <option>Table</option>
+                  <option>Checklist</option>
+                  <option>JSON</option>
+                  <option>Final answer only</option>
+                </select>
+              </label>
+
+              <label class="field-block">
+                <span class="field-label">Audience</span>
+                <input id="prompt-audience" class="text-input" type="text"
+                  placeholder="Example: startup founders, JavaScript developers, new managers" />
+              </label>
+            </div>
+
+            <label class="field-block mt-1">
+              <span class="field-label">What do you want the AI to do?</span>
+              <textarea id="prompt-goal" class="code-area compact-area"
+                placeholder="Example: create a landing page outline for an AI resume builder targeting job seekers"></textarea>
+            </label>
+
+            <label class="field-block mt-1">
+              <span class="field-label">Context, constraints, or keywords</span>
+              <textarea id="prompt-context" class="code-area compact-area"
+                placeholder="Example: include pricing section, avoid hype, target keyword: AI resume builder"></textarea>
+            </label>
+
+            <div class="button-row">
+              <button id="generate-prompt-btn" type="button" class="primary-button">Generate prompt</button>
+              <button id="clear-prompt-btn" type="button" class="secondary-button">Clear</button>
+            </div>
+          </div>
+
+          <div class="tool-panel">
+            <div class="output-header">
+              <span class="field-label">Generated prompt</span>
+              <button id="copy-prompt-btn" type="button" class="icon-button copy-button" title="Copy prompt"
+                aria-label="Copy prompt">📋</button>
+            </div>
+            <textarea id="prompt-output" class="code-area output-tall"
+              placeholder="Your generated prompt will appear here..."></textarea>
+          </div>
+        </section>
+
+        <section class="usage-section mt-2">
+          <h2>Why this prompt builder helps</h2>
+          <p>
+            Good AI results usually come from clear role, task, context, constraints, and output
+            format. This generator combines those parts into one reusable prompt so you can get more
+            consistent answers from common AI assistants.
+          </p>
+          <h2>Popular prompt ideas</h2>
+          <ul>
+            <li>SEO content briefs for blog posts, comparison pages, and product pages.</li>
+            <li>Marketing copy for ads, email campaigns, landing pages, and social posts.</li>
+            <li>Code review prompts, bug investigation prompts, and refactor planning prompts.</li>
+            <li>Learning plans, study notes, interview prep, and topic explainers.</li>
+          </ul>
+        </section>
+      </main>
+    </div>
+
+    <div data-include="partials/footer.html"></div>
+  </div>
+</body>
+
+</html>

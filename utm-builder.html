@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>UTM Builder – Free Campaign URL Generator | Tools Hub</title>
+  <meta name="description"
+    content="Build campaign URLs with UTM source, medium, campaign, term, and content parameters. Free UTM builder for ads, email, SEO, and social campaigns." />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta property="og:title" content="UTM Builder – Tools Hub" />
+  <meta property="og:description"
+    content="Create clean campaign tracking URLs for Google Analytics and marketing reports." />
+  <meta property="og:type" content="website" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="canonical" href="https://tools-hub.dev/utm-builder.html" />
+  <script src="assets/js/main.js" defer></script>
+  <script src="assets/js/include.js" defer></script>
+  <script src="assets/js/utm-builder.js" defer></script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "UTM Builder",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Any",
+      "url": "https://tools-hub.dev/utm-builder.html",
+      "description": "A free browser-based campaign URL and UTM parameter builder."
+    }
+  </script>
+</head>
+
+<body>
+  <div class="app">
+    <div data-include="partials/header.html"></div>
+
+    <div class="app-body">
+      <div data-include="partials/sidebar.html"></div>
+
+      <main class="main wide-main">
+        <section class="tool-hero">
+          <div>
+            <p class="eyebrow">SEO / Marketing</p>
+            <h1>UTM Builder</h1>
+            <p class="tool-subtitle">
+              Create clean campaign tracking URLs for ads, email newsletters, social posts, affiliate
+              links, and product launches.
+            </p>
+          </div>
+          <div class="hero-metrics" aria-label="Tool highlights">
+            <span>GA ready</span>
+            <span>Copy ready</span>
+            <span>Local only</span>
+          </div>
+        </section>
+
+        <section class="generator-grid">
+          <div class="tool-panel">
+            <label class="field-block">
+              <span class="field-label">Website URL</span>
+              <input id="utm-url" class="text-input" type="url" placeholder="https://example.com/landing-page" />
+            </label>
+
+            <div class="form-grid mt-1">
+              <label class="field-block">
+                <span class="field-label">Campaign source</span>
+                <input id="utm-source" class="text-input" type="text" placeholder="google, newsletter, linkedin" />
+              </label>
+              <label class="field-block">
+                <span class="field-label">Campaign medium</span>
+                <input id="utm-medium" class="text-input" type="text" placeholder="cpc, email, social, referral" />
+              </label>
+              <label class="field-block">
+                <span class="field-label">Campaign name</span>
+                <input id="utm-campaign" class="text-input" type="text" placeholder="spring_launch" />
+              </label>
+              <label class="field-block">
+                <span class="field-label">Campaign term</span>
+                <input id="utm-term" class="text-input" type="text" placeholder="keyword or audience" />
+              </label>
+              <label class="field-block">
+                <span class="field-label">Campaign content</span>
+                <input id="utm-content" class="text-input" type="text" placeholder="button_a, hero_link, ad_variant" />
+              </label>
+              <label class="field-block">
+                <span class="field-label">Naming helper</span>
+                <select id="utm-case" class="select-input">
+                  <option value="keep">Keep as typed</option>
+                  <option value="snake">snake_case</option>
+                  <option value="kebab">kebab-case</option>
+                  <option value="lower">lowercase</option>
+                </select>
+              </label>
+            </div>
+
+            <div class="button-row">
+              <button id="build-utm-btn" type="button" class="primary-button">Build URL</button>
+              <button id="clear-utm-btn" type="button" class="secondary-button">Clear</button>
+            </div>
+          </div>
+
+          <div class="tool-panel">
+            <div class="output-header">
+              <span class="field-label">Campaign URL</span>
+              <button id="copy-utm-btn" type="button" class="icon-button copy-button" title="Copy URL"
+                aria-label="Copy URL">📋</button>
+            </div>
+            <textarea id="utm-output" class="code-area meta-output"
+              placeholder="Your campaign URL will appear here..."></textarea>
+
+            <div class="usage-section compact-note">
+              <h2>Recommended minimum</h2>
+              <p>
+                Use at least <code>utm_source</code>, <code>utm_medium</code>, and
+                <code>utm_campaign</code>. Add term and content only when they help you compare
+                keywords, audiences, buttons, or ad variants.
+              </p>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <div data-include="partials/footer.html"></div>
+  </div>
+</body>
+
+</html>

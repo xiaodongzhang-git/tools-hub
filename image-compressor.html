@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Image Compressor – Compress JPG, PNG & WebP Online | Tools Hub</title>
+  <meta name="description"
+    content="Compress images in your browser. Resize and reduce JPG, PNG, and WebP file size with quality controls, preview, and download." />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta property="og:title" content="Image Compressor – Tools Hub" />
+  <meta property="og:description"
+    content="Compress and resize images locally in your browser before uploading them to websites, stores, or campaigns." />
+  <meta property="og:type" content="website" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="canonical" href="https://tools-hub.dev/image-compressor.html" />
+  <script src="assets/js/main.js" defer></script>
+  <script src="assets/js/include.js" defer></script>
+  <script src="assets/js/image-compressor.js" defer></script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Image Compressor",
+      "applicationCategory": "MultimediaApplication",
+      "operatingSystem": "Any",
+      "url": "https://tools-hub.dev/image-compressor.html",
+      "description": "A free browser-based image compressor and resizer."
+    }
+  </script>
+</head>
+
+<body>
+  <div class="app">
+    <div data-include="partials/header.html"></div>
+
+    <div class="app-body">
+      <div data-include="partials/sidebar.html"></div>
+
+      <main class="main wide-main">
+        <section class="tool-hero">
+          <div>
+            <p class="eyebrow">Image Tools</p>
+            <h1>Image Compressor</h1>
+            <p class="tool-subtitle">
+              Reduce image file size before uploading to websites, emails, product pages, stores, or
+              social campaigns. Processing stays in your browser.
+            </p>
+          </div>
+          <div class="hero-metrics" aria-label="Tool highlights">
+            <span>Resize</span>
+            <span>Quality control</span>
+            <span>Private</span>
+          </div>
+        </section>
+
+        <section class="generator-grid">
+          <div class="tool-panel">
+            <label class="field-block">
+              <span class="field-label">Image file</span>
+              <input id="compress-input" class="file-input" type="file" accept="image/png,image/jpeg,image/webp" />
+            </label>
+
+            <div class="form-grid mt-1">
+              <label class="field-block">
+                <span class="field-label">Output format</span>
+                <select id="compress-format" class="select-input">
+                  <option value="image/jpeg">JPEG</option>
+                  <option value="image/webp">WebP</option>
+                  <option value="image/png">PNG</option>
+                </select>
+              </label>
+
+              <label class="field-block">
+                <span class="field-label">Quality: <span id="quality-value">80</span>%</span>
+                <input id="compress-quality" class="range-input" type="range" min="10" max="100" value="80" />
+              </label>
+
+              <label class="field-block">
+                <span class="field-label">Max width</span>
+                <input id="compress-width" class="text-input" type="number" min="1" placeholder="Keep original" />
+              </label>
+
+              <label class="field-block">
+                <span class="field-label">Max height</span>
+                <input id="compress-height" class="text-input" type="number" min="1" placeholder="Keep original" />
+              </label>
+            </div>
+
+            <div class="button-row">
+              <button id="compress-btn" type="button" class="primary-button">Compress image</button>
+              <button id="download-compressed-btn" type="button" class="secondary-button">Download</button>
+              <button id="clear-compress-btn" type="button" class="secondary-button">Clear</button>
+            </div>
+
+            <div id="compress-error" class="error-message"></div>
+          </div>
+
+          <div class="tool-panel">
+            <div class="stats-grid">
+              <div class="stat-card">
+                <span>Original size</span>
+                <strong id="original-size">0 KB</strong>
+              </div>
+              <div class="stat-card">
+                <span>Compressed size</span>
+                <strong id="compressed-size">0 KB</strong>
+              </div>
+              <div class="stat-card">
+                <span>Saved</span>
+                <strong id="saved-percent">0%</strong>
+              </div>
+              <div class="stat-card">
+                <span>Dimensions</span>
+                <strong id="image-dimensions">-</strong>
+              </div>
+            </div>
+
+            <div class="preview-box compressor-preview mt-1">
+              <p id="compress-placeholder" class="placeholder">Compressed preview will appear here</p>
+              <img id="compressed-preview" class="preview-img" alt="Compressed preview" />
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <div data-include="partials/footer.html"></div>
+  </div>
+</body>
+
+</html>

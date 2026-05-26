@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>AI Token & Cost Estimator – ChatGPT API Cost Calculator | Tools Hub</title>
+  <meta name="description"
+    content="Estimate AI tokens and API costs for prompts, outputs, and batches. Free browser-based token and cost calculator for AI developers and teams." />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta property="og:title" content="AI Token & Cost Estimator – Tools Hub" />
+  <meta property="og:description"
+    content="Estimate prompt tokens, output tokens, and AI API costs before sending large requests." />
+  <meta property="og:type" content="website" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="canonical" href="https://tools-hub.dev/ai-token-calculator.html" />
+  <script src="assets/js/main.js" defer></script>
+  <script src="assets/js/include.js" defer></script>
+  <script src="assets/js/ai-token-calculator.js" defer></script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "AI Token and Cost Estimator",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Any",
+      "url": "https://tools-hub.dev/ai-token-calculator.html",
+      "description": "A free browser-based calculator for estimating AI prompt tokens and API costs."
+    }
+  </script>
+</head>
+
+<body>
+  <div class="app">
+    <div data-include="partials/header.html"></div>
+
+    <div class="app-body">
+      <div data-include="partials/sidebar.html"></div>
+
+      <main class="main wide-main">
+        <section class="tool-hero">
+          <div>
+            <p class="eyebrow">AI Tools</p>
+            <h1>AI Token & Cost Estimator</h1>
+            <p class="tool-subtitle">
+              Estimate token usage and request cost before you run large AI prompts, content batches,
+              chat histories, or automation jobs.
+            </p>
+          </div>
+          <div class="hero-metrics" aria-label="Tool highlights">
+            <span>Batch aware</span>
+            <span>Local only</span>
+            <span>Editable rates</span>
+          </div>
+        </section>
+
+        <section class="generator-grid">
+          <div class="tool-panel">
+            <label for="token-input" class="field-label">Prompt or conversation text</label>
+            <textarea id="token-input" class="code-area output-tall"
+              placeholder="Paste your prompt, chat history, article draft, or JSON payload here..."></textarea>
+
+            <div class="form-grid mt-1">
+              <label class="field-block">
+                <span class="field-label">Model preset</span>
+                <select id="model-preset" class="select-input">
+                  <option value="economy">Economy model</option>
+                  <option value="standard">Standard model</option>
+                  <option value="premium">Premium reasoning model</option>
+                  <option value="custom">Custom rates</option>
+                </select>
+              </label>
+
+              <label class="field-block">
+                <span class="field-label">Expected output tokens</span>
+                <input id="output-tokens" class="text-input" type="number" min="0" value="800" />
+              </label>
+
+              <label class="field-block">
+                <span class="field-label">Number of requests</span>
+                <input id="request-count" class="text-input" type="number" min="1" value="1" />
+              </label>
+
+              <label class="field-block">
+                <span class="field-label">Currency</span>
+                <select id="currency-select" class="select-input">
+                  <option value="USD">USD</option>
+                  <option value="CNY">CNY</option>
+                  <option value="JPY">JPY</option>
+                </select>
+              </label>
+            </div>
+
+            <div class="form-grid mt-1">
+              <label class="field-block">
+                <span class="field-label">Input price / 1M tokens</span>
+                <input id="input-price" class="text-input" type="number" min="0" step="0.01" value="0.15" />
+              </label>
+              <label class="field-block">
+                <span class="field-label">Output price / 1M tokens</span>
+                <input id="output-price" class="text-input" type="number" min="0" step="0.01" value="0.60" />
+              </label>
+            </div>
+          </div>
+
+          <div class="tool-panel">
+            <div class="stats-grid">
+              <div class="stat-card">
+                <span>Estimated input tokens</span>
+                <strong id="input-token-count">0</strong>
+              </div>
+              <div class="stat-card">
+                <span>Output tokens</span>
+                <strong id="output-token-count">800</strong>
+              </div>
+              <div class="stat-card">
+                <span>Total tokens</span>
+                <strong id="total-token-count">800</strong>
+              </div>
+              <div class="stat-card">
+                <span>Estimated cost</span>
+                <strong id="estimated-cost">$0.0000</strong>
+              </div>
+            </div>
+
+            <div class="usage-section compact-note">
+              <h2>Estimation method</h2>
+              <p>
+                This tool uses a practical browser-side approximation, not a model tokenizer. English
+                text is estimated at about four characters per token, with adjustments for CJK
+                characters, numbers, symbols, and whitespace. Always verify mission-critical billing
+                against your provider dashboard.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="usage-section mt-2">
+          <h2>Ways to use this calculator</h2>
+          <ul>
+            <li>Estimate the cost of summarizing many articles, tickets, or support conversations.</li>
+            <li>Compare short prompts against long prompts before building an AI workflow.</li>
+            <li>Plan monthly spend for batch jobs by increasing the request count.</li>
+            <li>Use custom rates when your provider publishes different pricing.</li>
+          </ul>
+        </section>
+      </main>
+    </div>
+
+    <div data-include="partials/footer.html"></div>
+  </div>
+</body>
+
+</html>
