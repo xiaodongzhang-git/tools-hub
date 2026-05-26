@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   const includeTargets = document.querySelectorAll("[data-include]");
+  const INCLUDE_VERSION = "20260526";
 
   // 没有需要 include 的，直接初始化布局
   if (includeTargets.length === 0) {
@@ -18,7 +19,9 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    fetch(file)
+    const url = file.includes("?") ? `${file}&v=${INCLUDE_VERSION}` : `${file}?v=${INCLUDE_VERSION}`;
+
+    fetch(url)
       .then((res) => {
         if (!res.ok) throw new Error(`Failed to load ${file}`);
         return res.text();
